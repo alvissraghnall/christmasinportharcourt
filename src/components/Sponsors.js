@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Navigation, Pagination } from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 
 export default function Sponsors() {
   return (
@@ -16,10 +17,11 @@ export default function Sponsors() {
                 <h2 className="h3 text-dark text-center text-lg-start mb-4 mb-lg-5">Sponsored by:</h2>
                 <Swiper className="swiper mx-n2"
                     // install Swiper modules
-                    modules={[Navigation, Pagination]}
+                    modules={[Navigation, Pagination, Autoplay]}
                     spaceBetween={8}
                     slidesPerView={3}
-                    pagination={{ clickable: false }}
+                    autoplay={true}
+                    pagination={{ clickable: true }}
                     breakpoints={{
                         200: {
                             spaceBetween: 8,
@@ -87,6 +89,14 @@ export default function Sponsors() {
                             <div className="swiper-slide">
                                 <Link to='/' className="d-block py-3">
                                     <img src="assets/img/brands/family_love.png" className="d-block mx-auto" width={154} alt="Brand" />
+                                </Link>
+                            </div>
+                        </SwiperSlide>
+
+                        <SwiperSlide>
+                            <div className="swiper-slide">
+                                <Link to='/' className="d-block py-3">
+                                    <img src="assets/img/brands/teller.png" className="d-block mx-auto" width={154} alt="Brand" />
                                 </Link>
                             </div>
                         </SwiperSlide>

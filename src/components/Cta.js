@@ -7,7 +7,7 @@ export default function Cta() {
             <div className="container py-2 py-md-4 py-lg-5">
                 <div className="row py-xl-3">
                     <div className="col-xl-4 col-lg-5 offset-xl-1 order-lg-2 mb-4">
-                        <h2 className="h1 text-light text-center text-sm-start pb-4 mb-0 mb-lg-3">Become a Part of the Digital Evolution!</h2>
+                        <h2 className="h1 text-light text-center text-sm-start pb-4 mb-0 mb-lg-3">Become a Part of the Biggest Carnival!</h2>
                         <div className="d-flex align-items-center">
                             <div className="bg-white rounded-circle text-primary flex-shrink-0 p-3">
                                 <svg style={{margin: '2px'}} width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@ export default function Cta() {
                                         <a href="https://ticket.christmasinportharcourt.com" className="btn btn-primary btn-lg mb-3 mb-sm-0 me-sm-3">Buy access pass</a>
                                         <div className="d-flex align-items-center">
                                             <span className="fs-lg me-2">Early Bird</span>
-                                            <span className="h4 text-body mb-0">₦5,000</span>
+                                            <span className="h4 text-body mb-0">₦1,000</span>
                                         </div>
                                     </div>
                                 </div>
