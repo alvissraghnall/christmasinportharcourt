@@ -13,14 +13,14 @@ export default function Home() {
         <Navbar />
 
             {/* Hero */}
-            <section className="dark-mode bg-dark bg-size-cover bg-repeat-0 bg-position-center vh-100 py-5 mb-4" style={{backgroundImage: 'url(assets/img/landing/saas-3/hero/hero-bg.jpg)'}}>
+            <section className="dark-mode bg-dark bg-size-cover bg-repeat-0 bg-position-center vh-100 py-5 mb-4" style={{backgroundImage: 'url(assets/img/hero-bg.jpg)'}}>
                 <div className="container position-relative zindex-2 pt-5 pb-md-2 pb-lg-4 pb-xl-5">
                     <div className="row pt-3 pb-2 py-md-4">
-                        <div className="col-xl-7 col-md-12 pt-lg-5 text-center text-md-start mb-4 mb-md-0 mx-auto">
-                            <h1 className="display-2 pb-2 pb-sm-3 text-center mt-5 pt-5">Christmas in <br /><span className='text-primary'>Port Harcourt</span> Carnival</h1>
-                            <p className="fs-lg d-md-none d-xl-block text-center pb-2 pb-md-0 mb-4 mb-md-5">24th-26th December | Elekahia Stadium, Port Harcourt</p>
+                        <div className="col-xl-7 col-md-12 text-center mb-4 mb-md-0 mx-auto">
+                            <img src='assets/img/sitelogo.png' className='text-center mb-3 pt-xs-5' alt='logo' width={500}/>
+                            <p className="fs-lg d-xl-block text-center pb-2 pb-md-0 mb-2 mb-md-3">24th-26th December | Elekahia Stadium, Port Harcourt</p>
                             <div className="d-flex justify-content-center  pb-2 pt-lg-2 pt-xl-0">
-                                <a href="https://ticket.christmasinportharcourt.com" className="btn btn-lg btn-danger me-3 me-sm-4">Buy Ticket</a>
+                                <a href="https://ticket.christmasinportharcourt.com" className="btn btn-lg btn-warning me-3 me-sm-4">Buy Ticket</a>
                                 <Link to='/contact' href="#" className="btn btn-lg btn-outline-secondary">Sponsorship</Link>
                             </div>
                         </div>
@@ -44,20 +44,10 @@ export default function Home() {
                                     <svg className="flex-shrink-0 me-2" width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M23.794 1.71278C23.5195 1.43819 23.0743 1.43819 22.7997 1.71278L21.4284 3.08406C20.6078 2.1197 19.3859 1.50686 18.0235 1.50686C16.8653 1.50686 15.7764 1.95789 14.9577 2.77675L0.205961 17.5284C0.00486702 17.7295 -0.0552736 18.0319 0.0535233 18.2947C0.162367 18.5574 0.418726 18.7287 0.703117 18.7287H9.44934L11.8087 21.0881H11.2469C10.8585 21.0881 10.5437 21.4029 10.5437 21.7912C10.5437 22.1795 10.8585 22.4943 11.2469 22.4943H15.7656C16.1539 22.4943 16.4687 22.1795 16.4687 21.7912C16.4687 21.4029 16.1539 21.0881 15.7656 21.0881H13.7975L11.4381 18.7287H14.2594C18.7998 18.7287 22.4937 15.0348 22.4937 10.4943V5.97709C22.4937 5.39355 22.3812 4.83578 22.1769 4.32428L23.794 2.70714C24.0687 2.43255 24.0687 1.98737 23.794 1.71278ZM2.4006 17.3224L13.5562 6.1668V8.98806C13.5562 13.5836 9.81745 17.3224 5.22187 17.3224H2.4006ZM21.0875 10.4943C21.0875 14.2594 18.0244 17.3225 14.2594 17.3225H10.2592C13.0761 15.6134 14.9625 12.5168 14.9625 8.98811V6.15995C14.9625 5.25752 15.3139 4.40913 15.952 3.77116C16.5052 3.21784 17.2409 2.91316 18.0235 2.91316C19.713 2.91316 21.0875 4.28767 21.0875 5.97719L21.0875 10.4943Z" fill="currentColor" /><path d="M18.7781 5.97526C19.1664 5.97526 19.4812 5.66046 19.4812 5.27213C19.4812 4.88381 19.1664 4.56901 18.7781 4.56901C18.3898 4.56901 18.075 4.88381 18.075 5.27213C18.075 5.66046 18.3898 5.97526 18.7781 5.97526Z" fill="currentColor" />
                                     </svg>
-                                    <h4 className="fs-base fw-semibold text-nowrap ps-1 mb-0">Early birds</h4>
-                                </div>
-                                <h5 className="text-primary my-2 my-sm-0">₦1,000</h5>
-                                <div className="fs-sm">until Nov. 30, 2022</div>
-                            </li>
-                            <li className="list-group-item d-flex flex-column flex-sm-row align-items-center justify-content-between p-4">
-                                <div className="d-flex align-items-center">
-                                    <svg className="flex-shrink-0 me-2" width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M18.0225 2.91133C17.2397 2.91133 16.5038 3.21602 15.9507 3.76914C15.3132 4.40664 14.9616 5.25508 14.9616 6.15977V8.98633C14.9616 12.516 13.0772 15.6098 10.26 17.3207H14.2585C18.0225 17.3207 21.0882 14.2598 21.0882 10.491V5.97227C21.0882 4.28945 19.71 2.91133 18.0225 2.91133ZM18.7772 5.97695C18.3882 5.97695 18.0741 5.66289 18.0741 5.27383C18.0741 4.88477 18.3882 4.5707 18.7772 4.5707C19.1663 4.5707 19.4804 4.88477 19.4804 5.27383C19.4804 5.66289 19.1663 5.97695 18.7772 5.97695ZM23.7929 1.71133C23.5163 1.43477 23.071 1.43477 22.7991 1.71133L21.4257 3.08477C20.6054 2.11914 19.3819 1.50977 18.0225 1.50977C16.8647 1.50977 15.7772 1.95977 14.9569 2.78008L0.20535 17.527C0.00378752 17.7285 -0.05715 18.0285 0.0506625 18.291C0.158475 18.5535 0.416288 18.727 0.702225 18.727H5.22097H9.4491L11.8069 21.0848H11.2444C10.8553 21.0848 10.5413 21.3988 10.5413 21.7879C10.5413 22.177 10.8553 22.491 11.2444 22.491H15.7632C16.1522 22.491 16.4663 22.177 16.4663 21.7879C16.4663 21.3988 16.1522 21.0848 15.7632 21.0848H13.7944L11.4366 18.727H14.2585C18.8007 18.727 22.4944 15.0332 22.4944 10.491V5.97227C22.4944 5.39102 22.3819 4.8332 22.1757 4.31758L23.7929 2.70039C24.0694 2.4332 24.0694 1.98789 23.7929 1.71133ZM2.3991 17.3207L13.5554 6.16445V8.98633C13.5554 13.5801 9.81472 17.3207 5.22097 17.3207H2.3991ZM21.0882 10.4957C21.0882 14.2598 18.0272 17.3254 14.2585 17.3254H10.26C13.0772 15.6145 14.9616 12.516 14.9616 8.98633V6.15977C14.9616 5.25508 15.3132 4.40664 15.9507 3.76914C16.5038 3.21602 17.2397 2.91133 18.0225 2.91133C19.71 2.91133 21.0882 4.28477 21.0882 5.97695V10.4957Z" fill="currentColor" />
-                                    </svg>
                                     <h4 className="fs-base fw-semibold text-nowrap ps-1 mb-0">Regular</h4>
                                 </div>
-                                <h5 className="text-primary my-2 my-sm-0">₦5,000</h5>
-                                <div className="fs-sm">after Nov 30, 2022</div>
+                                <h5 className="text-primary my-2 my-sm-0">₦1,500</h5>
+                                <div className="fs-sm">until Dec. 20, 2022</div>
                             </li>
                             <li className="list-group-item d-flex flex-column flex-sm-row align-items-center justify-content-between p-4">
                                 <div className="d-flex align-items-center">
@@ -66,8 +56,8 @@ export default function Home() {
                                     </svg>
                                     <h4 className="fs-base fw-semibold text-nowrap ps-1 mb-0">VIP Ticket</h4>
                                 </div>
-                                <h5 className="badge bg-dark fs-5 fw-bold rounded px-3 py-0 my-3 my-sm-0">₦10,000</h5>
-                                <div className="fs-sm">after Nov 30, 2022</div>
+                                <h5 className="badge bg-dark fs-5 fw-bold rounded px-3 py-0 my-3 my-sm-0">₦5,000</h5>
+                                <div className="fs-sm">after Dec. 20, 2022</div>
                             </li>
                         </ul>
                     </div>
@@ -89,8 +79,8 @@ export default function Home() {
                                 <div className="d-flex flex-column flex-sm-row align-items-center pt-4 mt-2">
                                     <a href="https://ticket.christmasinportharcourt.com" className="btn btn-light btn-lg mb-3 mb-sm-0 me-sm-3">Buy Ticket</a>
                                     <div className="d-flex align-items-center">
-                                        <span className="fs-lg text-light me-2">Early Bird</span>
-                                        <span className="h4 text-light mb-0">₦5,000</span>
+                                        <span className="fs-lg text-light me-2">Regular</span>
+                                        <span className="h4 text-light mb-0">₦1,500</span>
                                     </div>
                                 </div>
                                 </div>

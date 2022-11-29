@@ -26,7 +26,9 @@ export default function Footer() {
                     </a>
                 </div>
                 <p className="nav d-block fs-sm text-center pt-5 mt-lg-4 mb-0">
-                    <span className="opacity-80">© {(new Date().getFullYear())} CIPH. All rights reserved.</span>
+                    <span className="opacity-80">© {(new Date().getFullYear())} CIPH. All rights reserved.<br />Built by <a href="https://www.thankgodokoro.xyz/" target="_blank" rel="noopener noreferrer">
+                        TeeGee
+                    </a></span>
                 </p>
             </div>
         </footer>
