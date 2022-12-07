@@ -1,11 +1,11 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 
-export default function Navbar() {
+export default function NavbarLight() {
   return (
     <>
         {/* Navbar */}
-        <header className="header navbar navbar-expand-lg bg-light shadow-sm fixed-top">
+        <header className="header navbar navbar-expand-lg position-absolute navbar-sticky">
             <div className="container px-3">
             <Link to='/' className="navbar-brand pe-3">
                 <img src="assets/img/logo.svg" width={110} alt="Logo" />
@@ -15,7 +15,7 @@ export default function Navbar() {
                     <h5 className="offcanvas-title">Menu</h5>
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" />
                 </div>
-                <div className="offcanvas-body mx-auto">
+                <div className="offcanvas-body">
                     <ul className="navbar-nav mb-2 mb-lg-0">
                         <li className="nav-item">
                             <NavLink to='/' className="nav-link">Home</NavLink>
@@ -30,22 +30,12 @@ export default function Navbar() {
                             <NavLink to='/contact' className="nav-link">Contact</NavLink>
                         </li>
                     </ul>
-                </div>
-                <div className="offcanvas-header border-top">
-                    <Link to='/ticket' className="btn btn-danger w-100">
-                        <i className="bx bx-cart fs-4 lh-1 me-1" />
-                        &nbsp;Buy Ticket
-                    </Link>
-                </div>      
+                </div>     
             </div>
             
             <button type="button" className="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon" />
             </button>
-            <Link to='/ticket' className="btn btn-danger btn-sm fs-sm rounded d-none d-lg-inline-flex">
-                <i className="bx bx-cart fs-5 lh-1 me-1" />
-                &nbsp;Buy Ticket
-            </Link>
             </div>
         </header>
     </>
