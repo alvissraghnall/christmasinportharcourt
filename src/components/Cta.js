@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Cta() {
   return (
@@ -33,7 +34,7 @@ export default function Cta() {
                                         </div>
                                     </div>
                                     <div className="d-flex flex-column flex-sm-row align-items-center pt-4 mt-2">
-                                        <a href="https://ticket.christmasinportharcourt.com" className="btn btn-primary btn-lg mb-3 mb-sm-0 me-sm-3">Buy access pass</a>
+                                        <Link to='/ticket' className="btn btn-primary btn-lg mb-3 mb-sm-0 me-sm-3">Buy access pass</Link>
                                         <div className="d-flex align-items-center">
                                             <span className="fs-lg me-2">Regular</span>
                                             <span className="h4 text-body mb-0">₦1,500</span>

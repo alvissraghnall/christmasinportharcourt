@@ -3,13 +3,15 @@ import { PaystackButton } from "react-paystack"
 import NavbarLight from '../components/NavbarLight'
 
 export default function Ticket() {
-    const publicKey = "pk_test_e25a7594d44ca2c2f1b0bb7483c44ae920b72309"
+    const publicKey = "pk_live_ca29b8b11c2a076e05f003f4f4ff697ab37a387c"
     const [amount, setAmount] = useState("")
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
 
     const componentProps = {
+        name,
+        phone,
         email,
         amount: parseInt(amount) * 100,
         metadata: {

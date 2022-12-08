@@ -20,7 +20,7 @@ export default function Home() {
                             <img src='assets/img/sitelogo.png' className='text-center mb-3 pt-xs-5' alt='logo' width={500}/>
                             <p className="fs-lg d-xl-block text-center pb-2 pb-md-0 mb-2 mb-md-3">24th-26th December | Elekahia Stadium, Port Harcourt</p>
                             <div className="d-flex justify-content-center  pb-2 pt-lg-2 pt-xl-0">
-                                <a href="https://ticket.christmasinportharcourt.com" className="btn btn-lg btn-warning me-3 me-sm-4">Buy Ticket</a>
+                                <Link to='/ticket' className="btn btn-lg btn-warning me-3 me-sm-4">Buy Ticket</Link>
                                 <Link to='/contact' href="#" className="btn btn-lg btn-outline-secondary">Sponsorship</Link>
                             </div>
                         </div>
@@ -77,7 +77,7 @@ export default function Home() {
                                     </div>
                                 </div>
                                 <div className="d-flex flex-column flex-sm-row align-items-center pt-4 mt-2">
-                                    <a href="https://ticket.christmasinportharcourt.com" className="btn btn-light btn-lg mb-3 mb-sm-0 me-sm-3">Buy Ticket</a>
+                                    <Link to='/ticket' className="btn btn-light btn-lg mb-3 mb-sm-0 me-sm-3">Buy Ticket</Link>
                                     <div className="d-flex align-items-center">
                                         <span className="fs-lg text-light me-2">Regular</span>
                                         <span className="h4 text-light mb-0">₦1,500</span>
