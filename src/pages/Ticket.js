@@ -27,7 +27,7 @@ export default function Ticket() {
             setEmail("")
             setName("")
             setPhone("")
-            alert("Thanks for doing business with us! Come back soon!!")
+            alert("Welcome on board!")
         },
         onClose: () => alert("Wait! Don't leave :("),
     }
