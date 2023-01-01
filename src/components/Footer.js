@@ -15,10 +15,10 @@ export default function Footer() {
                     <li className="nav-item"><Link to='/privacy-policy' className="nav-link">Privacy Policy</Link></li>
                 </ul> */}
                 <div className="d-flex justify-content-center pt-4 mt-lg-3">
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="btn btn-icon btn-secondary btn-facebook mx-2">
+                    <a href="https://www.facebook.com/profile.php?id=100076490288892" target="_blank" rel="noopener noreferrer" className="btn btn-icon btn-secondary btn-facebook mx-2">
                         <i className="bx bxl-facebook" />
                     </a>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="btn btn-icon btn-secondary btn-instagram mx-2">
+                    <a href="https://www.instagram.com/christmasinportharcourtng" target="_blank" rel="noopener noreferrer" className="btn btn-icon btn-secondary btn-instagram mx-2">
                         <i className="bx bxl-instagram" />
                     </a>
                     <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer" className="btn btn-icon btn-secondary btn-youtube mx-2">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { PaystackButton } from "react-paystack"
+import { Navigate } from 'react-router-dom'
+import { PaystackButton } from 'react-paystack'
 import NavbarLight from '../components/NavbarLight'
 
 export default function Ticket() {
@@ -33,7 +34,10 @@ export default function Ticket() {
     }
 
   return (
+    
     <div>
+        <Navigate to='/closed' />
+        
         <NavbarLight />
 
         <section className="position-relative vh-100 pt-5 pb-4">

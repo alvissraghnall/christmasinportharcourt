@@ -23,8 +23,12 @@ export default function Navbar() {
                         <li className="nav-item">
                             <NavLink to='/about' className="nav-link">About</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink to='/gallery' className="nav-link">Gallery</NavLink>
+                        <li className="nav-item dropdown">
+                            <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Gallery</a>
+                            <ul className="dropdown-menu">
+                                <li><NavLink to='/gallery-v1' className="dropdown-item">Maiden Edition</NavLink></li>
+                                <li><NavLink to='/gallery-v2' className="dropdown-item">Home Coming</NavLink></li>
+                            </ul>
                         </li>
                         <li className="nav-item">
                             <NavLink to='/contact' className="nav-link">Contact</NavLink>
