@@ -108,9 +108,9 @@ export default function Home() {
                     <p className="fs-lg text-muted text-center mb-4 mb-lg-5">Watch the short video and check out how the last Christmas in Port Harcourt unfolded.</p>
                     <div className="position-relative overflow-hidden rounded-3 mb-4 mb-lg-5">
                         <span className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-35" />
-                        <img src="assets/img/video-cover.jpg" alt="Video cover" />
+                        <img src="https://i.imgur.com/4Vi5Ik5.jpg" height={400} alt="Video cover" />
                         <div className="position-absolute top-0 start-0 w-100 h-100 zindex-5 d-flex align-items-center justify-content-center">
-                            <a href="https://www.youtube.com/watch?v=gJU_Juf8vME" className="btn btn-video btn-icon bg-white btn-xl stretched-link" data-bs-toggle="video">
+                            <a href="https://www.youtube.com/watch?v=yU5W0tnKPmw" className="btn btn-video btn-icon bg-white btn-xl stretched-link" data-bs-toggle="video">
                                 <i className="bx bx-play" />
                             </a>
                         </div>

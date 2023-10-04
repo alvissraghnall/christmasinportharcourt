@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom'
+// import { Navigate } from 'react-router-dom'
 import { PaystackButton } from 'react-paystack'
 import NavbarLight from '../components/NavbarLight'
 
@@ -36,7 +36,7 @@ export default function Ticket() {
   return (
     
     <div>
-        <Navigate to='/closed' />
+        {/* <Navigate to='/closed' /> */}
         
         <NavbarLight />
 
@@ -84,11 +84,11 @@ export default function Ticket() {
                     <PaystackButton {...componentProps} className="btn btn-danger btn-lg w-100 mt-2" />
                 </div>
                 <div className="w-100 align-self-end">
-                    <span className="opacity-80">© {(new Date().getFullYear())} CIPH. All rights reserved. Built by <a href="https://www.thankgodokoro.xyz/" target="_blank" rel="noopener noreferrer">TeeGee</a></span>
+                    <span className="opacity-80">© {(new Date().getFullYear())} CIPH. All rights reserved. Built by <a href="https://www.webify.com.ng" target="_blank" rel="noopener noreferrer">Webify</a></span>
                 </div>
             </div>
             {/* Background */}
-            <div className="position-absolute top-0 end-0 w-50 h-100 bg-position-center bg-repeat-0 bg-size-cover d-none d-xl-block" style={{backgroundImage: 'url(assets/img/ticketbg.jpg)'}} />
+            <div className="position-absolute top-0 end-0 w-50 h-100 bg-position-center bg-repeat-0 bg-size-cover d-none d-xl-block" style={{backgroundImage: 'url(assets/img/closedbg.jpg)'}} />
         </section>
     </div>
   )
