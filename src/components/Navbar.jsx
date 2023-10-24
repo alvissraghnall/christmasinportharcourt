@@ -8,7 +8,7 @@ export default function Navbar() {
         <header className="header navbar navbar-expand-lg bg-light shadow-sm fixed-top">
             <div className="container px-3">
             <Link to='/' className="navbar-brand pe-3">
-                <img src="assets/img/logo.svg" width={110} alt="Logo" />
+                <img src="assets/img/new-logo.jpeg" width={110} height={50} style={{ height: "50px"}} alt="Logo" />
             </Link>
             <div id="navbarNav" className="offcanvas offcanvas-end">
                 <div className="offcanvas-header border-bottom">

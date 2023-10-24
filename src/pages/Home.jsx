@@ -6,18 +6,28 @@ import Cta from '../components/Cta'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Sponsors from '../components/Sponsors'
+import styles from "./styles/Home.module.css";
+
+const isEarlyBirdDiscountValid = () => {
+    const currentDate = new Date();
+    const discountDeadline = new Date('2023-11-30');
+
+    return currentDate < discountDeadline;
+};
 
 export default function Home() {
-  return (
-    <>
-        <Navbar />
+
+    const earlyBirdDiscount = isEarlyBirdDiscountValid();
+    return (
+        <>
+            <Navbar />
 
             {/* Hero */}
-            <section className="dark-mode bg-dark bg-size-cover bg-repeat-0 bg-position-center vh-100 py-5 mb-4" style={{backgroundImage: 'url(assets/img/hero-bg.jpg)'}}>
+            <section className="dark-mode bg-dark bg-size-cover bg-repeat-0 bg-position-center py-5 mb-4" style={{ backgroundImage: 'url(assets/img/hero-bg.jpg)', minHeight: "100svh" }}>
                 <div className="container position-relative zindex-2 pt-5 pb-md-2 pb-lg-4 pb-xl-5">
                     <div className="row pt-3 pb-2 py-md-4">
                         <div className="col-xl-7 col-md-12 text-center mb-4 mb-md-0 mx-auto">
-                            <img src='assets/img/sitelogo.png' className='text-center mb-3 pt-xs-5' alt='logo' width={500}/>
+                            <img src='assets/img/sitelogo.png' className='text-center mb-3 pt-xs-5' alt='logo' width={500} />
                             {/* <p className="fs-lg d-xl-block text-center pb-2 pb-md-0 mb-2 mb-md-3">24th-26th December | Elekahia Stadium, Port Harcourt</p> */}
                             <div className="d-flex justify-content-center  pb-2 pt-lg-2 pt-xl-0">
                                 <Link to='/ticket' className="btn btn-lg btn-warning me-3 me-sm-4">Buy Ticket</Link>
@@ -46,18 +56,39 @@ export default function Home() {
                                     </svg>
                                     <h4 className="fs-base fw-semibold text-nowrap ps-1 mb-0">Regular</h4>
                                 </div>
-                                <h5 className="text-primary my-2 my-sm-0">₦1,500</h5>
-                                <div className="fs-sm">until Dec. 20, 2022</div>
+                                <h5 className="text-primary my-2 my-sm-0">
+                                    <del className={styles.formerAmount}>
+                                        <span>₦ 5,000</span>
+                                    </del>
+                                    <ins className={styles.newAmount}>
+                                        <span class="amount">₦ 3,000</span>
+                                    </ins>
+                                    {/* {earlyBirdDiscount ? '₦ 3,000' : '₦ 5,000'} */}
+                                </h5>
+                                <div className="fs-sm">
+                                    {earlyBirdDiscount ? 'until Nov. 30, 2023' : 'after Nov. 30, 2023'}
+                                </div>
                             </li>
                             <li className="list-group-item d-flex flex-column flex-sm-row align-items-center justify-content-between p-4">
                                 <div className="d-flex align-items-center">
                                     <svg className="flex-shrink-0 me-2" width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M18.0225 2.91133C17.2397 2.91133 16.5038 3.21602 15.9507 3.76914C15.3132 4.40664 14.9616 5.25508 14.9616 6.15977V8.98633C14.9616 12.516 13.0772 15.6098 10.26 17.3207H14.2585C18.0225 17.3207 21.0882 14.2598 21.0882 10.491V5.97227C21.0882 4.28945 19.71 2.91133 18.0225 2.91133ZM18.7772 5.97695C18.3882 5.97695 18.0741 5.66289 18.0741 5.27383C18.0741 4.88477 18.3882 4.5707 18.7772 4.5707C19.1663 4.5707 19.4804 4.88477 19.4804 5.27383C19.4804 5.66289 19.1663 5.97695 18.7772 5.97695ZM23.7929 1.71133C23.5163 1.43477 23.071 1.43477 22.7991 1.71133L21.4257 3.08477C20.6054 2.11914 19.3819 1.50977 18.0225 1.50977C16.8647 1.50977 15.7772 1.95977 14.9569 2.78008L0.20535 17.527C0.00378752 17.7285 -0.05715 18.0285 0.0506625 18.291C0.158475 18.5535 0.416288 18.727 0.702225 18.727H5.22097H9.4491L11.8069 21.0848H11.2444C10.8553 21.0848 10.5413 21.3988 10.5413 21.7879C10.5413 22.177 10.8553 22.491 11.2444 22.491H15.7632C16.1522 22.491 16.4663 22.177 16.4663 21.7879C16.4663 21.3988 16.1522 21.0848 15.7632 21.0848H13.7944L11.4366 18.727H14.2585C18.8007 18.727 22.4944 15.0332 22.4944 10.491V5.97227C22.4944 5.39102 22.3819 4.8332 22.1757 4.31758L23.7929 2.70039C24.0694 2.4332 24.0694 1.98789 23.7929 1.71133ZM2.3991 17.3207L13.5554 6.16445V8.98633C13.5554 13.5801 9.81472 17.3207 5.22097 17.3207H2.3991ZM21.0882 10.4957C21.0882 14.2598 18.0272 17.3254 14.2585 17.3254H10.26C13.0772 15.6145 14.9616 12.516 14.9616 8.98633V6.15977C14.9616 5.25508 15.3132 4.40664 15.9507 3.76914C16.5038 3.21602 17.2397 2.91133 18.0225 2.91133C19.71 2.91133 21.0882 4.28477 21.0882 5.97695V10.4957Z" fill="currentColor" />
                                     </svg>
-                                    <h4 className="fs-base fw-semibold text-nowrap ps-1 mb-0">VIP Ticket</h4>
+                                    <h4 className="fs-base fw-semibold text-nowrap ps-1 mb-0">VIP</h4>
                                 </div>
-                                <h5 className="badge bg-dark fs-5 fw-bold rounded px-3 py-0 my-3 my-sm-0">₦5,000</h5>
-                                <div className="fs-sm">after Dec. 20, 2022</div>
+                                <h5 className="text-primary my-2 my-sm-0">
+                                    <del className={styles.formerAmount}>
+                                        <span>₦20,000</span>
+                                    </del>
+                                    <ins className={styles.newAmount}>
+                                        <span class="amount">₦10,000</span>
+                                    </ins>
+                                    {/* {earlyBirdDiscount ? '₦ 10,000' : '₦ 20,000'} */}
+                                </h5>
+                                {/* <span>early bird</span> */}
+                                <div className="fs-sm">
+                                    {earlyBirdDiscount ? 'until Nov. 30, 2023' : 'after Nov. 30, 2023'}
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -65,28 +96,28 @@ export default function Home() {
                         <div className="position-relative">
                             <div className="position-relative overflow-hidden bg-gradient-primary rounded-3 zindex-5 py-5 px-4 p-sm-5">
                                 <span className="position-absolute top-50 start-0 translate-middle bg-light rounded-circle p-4" />
-                                <span className="position-absolute top-0 start-0 w-100 h-100 bg-repeat-0 bg-position-center-end bg-size-cover" style={{backgroundImage: 'url(assets/img/price-card-pattern.png)'}} />
+                                <span className="position-absolute top-0 start-0 w-100 h-100 bg-repeat-0 bg-position-center-end bg-size-cover" style={{ backgroundImage: 'url(assets/img/price-card-pattern.png)' }} />
                                 <div className="px-md-4 position-relative zindex-5">
-                                <div className="d-sm-flex align-items-start justify-content-between">
-                                    <div className="text-center text-sm-start me-sm-4">
-                                    <div className="lead fw-semibold text-light text-uppercase mb-2">Dec. 24th - 26th</div>
-                                    <h3 className="h1 text-light">Christmas in Port Harcourt</h3>
+                                    <div className="d-sm-flex align-items-start justify-content-between">
+                                        <div className="text-center text-sm-start me-sm-4">
+                                            <div className="lead fw-semibold text-light text-uppercase mb-2">Dec. 24th - 26th</div>
+                                            <h3 className="h1 text-light">Christmas in Port Harcourt</h3>
+                                        </div>
+                                        <div className="d-table bg-white rounded-3 p-4 flex-shrink-0 mx-auto mx-sm-0">
+                                            <img src="assets/img/qr-code.png" width={102} alt="QR Code" />
+                                        </div>
                                     </div>
-                                    <div className="d-table bg-white rounded-3 p-4 flex-shrink-0 mx-auto mx-sm-0">
-                                    <img src="assets/img/qr-code.png" width={102} alt="QR Code" />
+                                    <div className="d-flex flex-column flex-sm-row align-items-center pt-4 mt-2">
+                                        <Link to='/ticket' className="btn btn-light btn-lg mb-3 mb-sm-0 me-sm-3">Buy Ticket</Link>
+                                        <div className="d-flex align-items-center">
+                                            <span className="fs-lg text-light me-2">Regular</span>
+                                            <span className="h4 text-light mb-0">₦1,500</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="d-flex flex-column flex-sm-row align-items-center pt-4 mt-2">
-                                    <Link to='/ticket' className="btn btn-light btn-lg mb-3 mb-sm-0 me-sm-3">Buy Ticket</Link>
-                                    <div className="d-flex align-items-center">
-                                        <span className="fs-lg text-light me-2">Regular</span>
-                                        <span className="h4 text-light mb-0">₦1,500</span>
-                                    </div>
-                                </div>
                                 </div>
                                 <span className="position-absolute top-50 end-0 translate-middle-y bg-light rounded-circle p-4 me-n4" />
                             </div>
-                            <span className="position-absolute bg-gradient-primary opacity-60 bottom-0 mb-n2 d-dark-mode-none" style={{left: '1.5rem', width: 'calc(100% - 3rem)', height: '5rem', filter: 'blur(.625rem)'}} />
+                            <span className="position-absolute bg-gradient-primary opacity-60 bottom-0 mb-n2 d-dark-mode-none" style={{ left: '1.5rem', width: 'calc(100% - 3rem)', height: '5rem', filter: 'blur(.625rem)' }} />
                         </div>
                         <div className="position-absolute bottom-0 text-primary d-none d-lg-block ms-xl-n5 mb-lg-5 mb-xl-4 pb-3">
                             <div className="ms-xl-n4">
@@ -98,13 +129,13 @@ export default function Home() {
             </section>
 
             <Sponsors />
-            
+
             <Artists />
 
             {/* Highlights (Video showreel) */}
             <section className="bg-secondary py-5">
                 <div className="container py-2 py-md-4 py-lg-5">
-                    <h3 className="h1 text-center mb-lg-4">Previous Year Highlights</h3>
+                    <h3 className="h1 text-center mb-lg-4">Previous Year's Highlights</h3>
                     <p className="fs-lg text-muted text-center mb-4 mb-lg-5">Watch the short video and check out how the last Christmas in Port Harcourt unfolded.</p>
                     <div className="position-relative overflow-hidden rounded-3 mb-4 mb-lg-5">
                         <span className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-35" />
@@ -134,8 +165,8 @@ export default function Home() {
                 </div>
                 <div className="row mb-lg-3 pb-1 pb-md-4 pb-lg-5 mt-4 mt-sm-n5">
                     <div className="col-lg-4 col-md-5 offset-md-6 offset-lg-7 mt-md-n5">
-                        <div className="gallery mt-md-n4 mx-auto" style={{maxWidth: '616px'}}>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15902.718775167548!2d7.0131995697753915!3d4.824952200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069cdcf3bf146ed%3A0xea1d54f4cdef8012!2sYakubu%20Gowon%20Stadium!5e0!3m2!1sen!2sng!4v1668618342954!5m2!1sen!2sng" data-iframe="true" className="gallery-item rounded-2" data-sub-html="<h6 class=&quot;fs-sm text-light&quot;>Yakubu Gowon Stadium</h6>" style={{border: 0, minHeight: '300px'}}>
+                        <div className="gallery mt-md-n4 mx-auto" style={{ maxWidth: '616px' }}>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15902.718775167548!2d7.0131995697753915!3d4.824952200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069cdcf3bf146ed%3A0xea1d54f4cdef8012!2sYakubu%20Gowon%20Stadium!5e0!3m2!1sen!2sng!4v1668618342954!5m2!1sen!2sng" data-iframe="true" className="gallery-item rounded-2" data-sub-html="<h6 class=&quot;fs-sm text-light&quot;>Yakubu Gowon Stadium</h6>" style={{ border: 0, minHeight: '300px' }}>
                                 <img src="assets/img/map.png" className="d-dark-mode-none" alt="Map preview" />
                                 <div className="gallery-item-caption fs-sm fw-medium">Yakubu Gowon Stadium</div>
                             </iframe>
@@ -146,7 +177,7 @@ export default function Home() {
 
             <Cta />
 
-        <Footer />
-    </>
-  )
+            <Footer />
+        </>
+    )
 }
