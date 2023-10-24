@@ -1,0 +1,27 @@
+/* styles for Merchandise section */
+.merchandise {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* styles for Product Card */
+  .productCard {
+    width: 250px;
+    border: 1px solid #e1e1e1;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .productImg {
+    max-width: 100%;
+  }
+  
+  .productTitle {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .productPrice {
+    color: #ff5722;
+  }
+  

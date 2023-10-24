@@ -31,6 +31,9 @@ export default function Navbar() {
                             </ul>
                         </li>
                         <li className="nav-item">
+                            <NavLink to='/merch' className="nav-link">Merch</NavLink>
+                        </li>
+                        <li className="nav-item">
                             <NavLink to='/contact' className="nav-link">Contact</NavLink>
                         </li>
                     </ul>

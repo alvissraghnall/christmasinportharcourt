@@ -7,7 +7,7 @@ import Sponsors from '../components/Sponsors'
 export default function About() {
   return (
     <>
-        <Navbar />
+        {/* <Navbar /> */}
             {/* Hero */}
             <section className="position-relative pt-5 pb-5">
                 {/* Background */}
@@ -41,7 +41,7 @@ export default function About() {
 
             <Sponsors />
             <Cta />
-        <Footer />
+        {/* <Footer /> */}
     </>
   )
 }
