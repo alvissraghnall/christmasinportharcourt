@@ -111,7 +111,12 @@ export default function Home() {
                                         <Link to='/ticket' className="btn btn-light btn-lg mb-3 mb-sm-0 me-sm-3">Buy Ticket</Link>
                                         <div className="d-flex align-items-center">
                                             <span className="fs-lg text-light me-2">Regular</span>
-                                            <span className="h4 text-light mb-0">₦1,500</span>
+                                            <span className="h4 text-light mb-0">
+						
+                                    <ins className={styles.newAmount} style={{ paddingLeft: "0em" }}>
+                                        <span class="amount">₦ 3,000</span>
+                                    </ins>
+					    </span>
                                         </div>
                                     </div>
                                 </div>
