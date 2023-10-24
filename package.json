@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "vite", 
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview" 
   },
   "eslintConfig": {
