@@ -27,7 +27,7 @@ export default function Home() {
                 <div className="container position-relative zindex-2 pt-5 pb-md-2 pb-lg-4 pb-xl-5">
                     <div className="row pt-3 pb-2 py-md-4">
                         <div className="col-xl-7 col-md-12 text-center mb-4 mb-md-0 mx-auto">
-                            <img src='assets/img/sitelogo.png' className='text-center mb-3 pt-xs-5' alt='Logo' width={500} />
+                            <img src='assets/img/intro-img.png' className='text-center mb-3 pt-xs-5' alt='Logo' width={500} />
                             {/* <p className="fs-lg d-xl-block text-center pb-2 pb-md-0 mb-2 mb-md-3">24th-26th December | Elekahia Stadium, Port Harcourt</p> */}
                             <div className="d-flex justify-content-center  pb-2 pt-lg-2 pt-xl-0">
                                 <Link to='/ticket' className="btn btn-lg btn-warning me-3 me-sm-4">Buy Ticket</Link>
