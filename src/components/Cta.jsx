@@ -37,7 +37,7 @@ export default function Cta() {
                                         <Link to='/ticket' className="btn btn-primary btn-lg mb-3 mb-sm-0 me-sm-3">Buy access pass</Link>
                                         <div className="d-flex align-items-center">
                                             <span className="fs-lg me-2">Regular</span>
-                                            <span className="h4 text-body mb-0">₦1,500</span>
+                                            <span className="h4 text-body mb-0">₦3,000</span>
                                         </div>
                                     </div>
                                 </div>
