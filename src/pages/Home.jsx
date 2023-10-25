@@ -142,7 +142,7 @@ export default function Home() {
                     <div className="position-relative overflow-hidden rounded-3 mb-4 mb-lg-5">
                         <span className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-35" />
                         <img src="https://i.imgur.com/4Vi5Ik5.jpg" height={400} alt="Video cover" />
-                        <div className="position-absolute top-0 start-0 w-100 h-100 zindex-5 d-flex align-items-center justify-content-center">
+                        <div className="position-absolute top-0 start-0 w-100 h-100 z-index-5 d-flex align-items-center justify-content-center">
                             <a href="https://www.youtube.com/watch?v=yU5W0tnKPmw" className="btn btn-video btn-icon bg-white btn-xl stretched-link" data-bs-toggle="video">
                                 <i className="bx bx-play" />
                             </a>
