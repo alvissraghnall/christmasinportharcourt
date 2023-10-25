@@ -26,21 +26,21 @@
 }
 
 .titleSmall {
-  letter-spacing: .2em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   font-size: .8rem;
   font-weight: 600;
   display: block;
 }
 
-.btnPseudo {
-  padding-left: 0;
-  padding-right: calc(var(--theme-btn-psuedo-width) + 1rem);
+.merchPrice {
+  /* padding-left: 0;
+  padding-right: calc(var(--theme-btn-psuedo-width) + 1rem); */
   position: relative;
   transition: all .2s ease-in;
-  overflow: hidden;
+  /* overflow: hidden; */
   text-transform: uppercase;
-  font-size: .8rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1px;
 }

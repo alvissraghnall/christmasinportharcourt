@@ -58,7 +58,7 @@ export default function Home() {
                                         <span>₦ 5,000</span>
                                     </del>
                                     <ins className={styles.newAmount}>
-                                        <span class="amount">₦ 3,000</span>
+                                        <span className="amount">₦ 3,000</span>
                                     </ins>
                                     {/* {earlyBirdDiscount ? '₦ 3,000' : '₦ 5,000'} */}
                                 </h5>
@@ -78,7 +78,7 @@ export default function Home() {
                                         <span>₦20,000</span>
                                     </del>
                                     <ins className={styles.newAmount}>
-                                        <span class="amount">₦10,000</span>
+                                        <span className="amount">₦10,000</span>
                                     </ins>
                                     {/* {earlyBirdDiscount ? '₦ 10,000' : '₦ 20,000'} */}
                                 </h5>
@@ -111,7 +111,7 @@ export default function Home() {
                                             <span className="h4 text-light mb-0">
 						
                                     <ins className={styles.newAmount} style={{ paddingLeft: "0em" }}>
-                                        <span class="amount">₦ 3,000</span>
+                                        <span className="amount">₦ 3,000</span>
                                     </ins>
 					    </span>
                                         </div>
@@ -168,11 +168,11 @@ export default function Home() {
                 <div className="row mb-lg-3 pb-1 pb-md-4 pb-lg-5 mt-4 mt-sm-n5">
                     <div className="col-lg-4 col-md-5 offset-md-6 offset-lg-7 mt-md-n5">
                         <div className="gallery mt-md-n4 mx-auto" style={{ maxWidth: '616px' }}>
-                            {/*.  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15902.718775167548!2d7.0131995697753915!3d4.824952200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069cdcf3bf146ed%3A0xea1d54f4cdef8012!2sYakubu%20Gowon%20Stadium!5e0!3m2!1sen!2sng!4v1668618342954!5m2!1sen!2sng" data-iframe="true" className="gallery-item rounded-2" data-sub-html="<h6 class=&quot;fs-sm text-light&quot;>Yakubu Gowon Stadium</h6>" style={{ border: 0, minHeight: '300px' }}>
+                            {/*.  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15902.718775167548!2d7.0131995697753915!3d4.824952200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069cdcf3bf146ed%3A0xea1d54f4cdef8012!2sYakubu%20Gowon%20Stadium!5e0!3m2!1sen!2sng!4v1668618342954!5m2!1sen!2sng" data-iframe="true" className="gallery-item rounded-2" data-sub-html="<h6 className=&quot;fs-sm text-light&quot;>Yakubu Gowon Stadium</h6>" style={{ border: 0, minHeight: '300px' }}>
                                 <img src="assets/img/map.png" className="d-dark-mode-none" alt="Map preview" />
                                 <div className="gallery-item-caption fs-sm fw-medium">Yakubu Gowon Stadium</div>
                             </iframe> */}
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7951.388657643004!2d7.0023296!3d4.8224529!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069ce79682c0e03%3A0x5ad051bb13596d15!2sPort%20Harcourt%20Polo%20Club!5e0!3m2!1sen!2sng!4v1698264407081!5m2!1sen!2sng" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-iframe="true" className="gallery-item rounded-2" data-sub-html="<h6 class=&quot;fs-sm text-light&quot;>Port Harcourt Polo Club</h6>" style={{ border: 0, minHeight: '300px' }}>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7951.388657643004!2d7.0023296!3d4.8224529!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069ce79682c0e03%3A0x5ad051bb13596d15!2sPort%20Harcourt%20Polo%20Club!5e0!3m2!1sen!2sng!4v1698264407081!5m2!1sen!2sng" loading="lazy" referrerPolicy="no-referrer-when-downgrade" data-iframe="true" className="gallery-item rounded-2" data-sub-html="<h6 className=&quot;fs-sm text-light&quot;>Port Harcourt Polo Club</h6>" style={{ border: 0, minHeight: '300px' }}>
                              
                                    <img src="assets/img/map.png" className="d-dark-mode-none" alt="Map preview" />
                                 <div className="gallery-item-caption fs-sm fw-medium">Port Harcourt Polo Club</div>
