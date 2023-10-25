@@ -60,7 +60,6 @@ const images = [
 export default function MaidenEdition() {
   return (
     <>
-        <Navbar />
         
             <section className="pt-5 pb-5">
                 <div className="container">
@@ -102,7 +101,6 @@ export default function MaidenEdition() {
                 </div>
             </section>
 
-        <Footer />
     </>
   )
 }

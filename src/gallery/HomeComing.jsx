@@ -1,5 +1,5 @@
 import React from 'react'
-import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry'
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
@@ -100,10 +100,18 @@ export default function HomeComing() {
     // const viewImage = (img, i)=>{
     //     setData({img, i})
     // }
-  return (
-    <>
-        <Navbar />
-        
+
+    const [isLoading, setIsLoading] = useState(true);
+
+    const handleImageLoad = () => {
+        // When an image has loaded, check if all images have loaded.
+        // If all images are loaded, set isLoading to false.
+        setIsLoading(false);
+    };
+
+    return (
+        <>
+
             <section className="pt-5 pb-5">
                 <div className="container">
                     <div className="row">
@@ -124,17 +132,30 @@ export default function HomeComing() {
                         } */}
                         <div className="col-12 mt-5 pt-4">
                             <h1 className='text-center mb-5 mt-3'>Home Coming Gallery</h1>
+                            {isLoading && (
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        height: '100vh',
+                                    }}
+                                >
+                                    Loading...
+                                </div>
+                            )}
                             <ResponsiveMasonry
-                                columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}
+                                columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
                             >
                                 <Masonry gutter="10px">
                                     {images.map((image, i) => (
                                         <img
                                             key={i}
                                             src={image}
-                                            style={{width: "100%", display: "block", cursor: 'pointer'}}
+                                            style={{ width: "100%", display: "block", cursor: 'pointer' }}
                                             alt=""
-                                            // onClick={ () => viewImage(image, i)}
+                                            onLoad={handleImageLoad}
+                                        // onClick={ () => viewImage(image, i)}
                                         />
                                     ))}
                                 </Masonry>
@@ -144,7 +165,6 @@ export default function HomeComing() {
                 </div>
             </section>
 
-        <Footer />
-    </>
-  )
+        </>
+    )
 }

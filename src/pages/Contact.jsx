@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar'
 export default function Contact() {
   return (
     <>
-        <Navbar />
+        {/* <Navbar /> */}
             <section className="container py-2 py-lg-4 py-xl-5 mb-2 mb-md-3">
                 <div className="row py-5 pt-lg-6 pt-6">
                     <div className="col-lg-6 mb-5 mb-lg-0">
@@ -45,7 +45,7 @@ export default function Contact() {
                     </div>
                 </div>
             </section>
-        <Footer />
+        {/* <Footer /> */}
     </>
   )
 }
