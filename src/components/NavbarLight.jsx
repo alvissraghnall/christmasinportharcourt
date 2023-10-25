@@ -30,6 +30,9 @@ export default function NavbarLight() {
                                 <li><NavLink to='/gallery-v2' className="dropdown-item">Home Coming</NavLink></li>
                             </ul>
                         </li>
+                      <li className="nav-item">
+                            <NavLink to='/merch' className="nav-link">Merch</NavLink>
+                        </li>
                         <li className="nav-item">
                             <NavLink to='/contact' className="nav-link">Contact</NavLink>
                         </li>
