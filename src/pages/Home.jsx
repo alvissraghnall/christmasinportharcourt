@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Activities from '../components/Activities'
 import Artists from '../components/Artists'
 import Cta from '../components/Cta'
-import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Sponsors from '../components/Sponsors'
 import styles from "./styles/Home.module.css";
@@ -20,8 +19,6 @@ export default function Home() {
     const earlyBirdDiscount = isEarlyBirdDiscountValid();
     return (
         <>
-            <Navbar />
-
             {/* Hero */}
             <section className="dark-mode bg-dark bg-size-cover bg-repeat-0 bg-position-center py-5 mb-4" style={{ backgroundImage: 'url(assets/img/hero-bg.jpg)', minHeight: "100svh" }}>
                 <div className="container position-relative zindex-2 pt-5 pb-md-2 pb-lg-4 pb-xl-5">
@@ -187,8 +184,6 @@ export default function Home() {
             </section>
 
             <Cta />
-
-            <Footer />
-        </>
+       </>
     )
 }
