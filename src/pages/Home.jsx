@@ -53,7 +53,7 @@ export default function Home() {
                                     </svg>
                                     <h4 className="fs-base fw-semibold text-nowrap ps-1 mb-0">Regular</h4>
                                 </div>
-                                <h5 className="text-primary my-2 my-sm-0 d-flex flex-sm-row flex-column">
+                                <h5 className="text-primary my-2 my-sm-0 d-flex flex-sm-row flex-column justify-content-center align-items-center">
                                     <del className={styles.formerAmount}>
                                         <span>₦ 5,000</span>
                                     </del>
@@ -73,7 +73,7 @@ export default function Home() {
                                     </svg>
                                     <h4 className="fs-base fw-semibold text-nowrap ps-1 mb-0">VIP</h4>
                                 </div>
-                                <h5 className="text-primary my-2 my-sm-0 d-flex flex-sm-row flex-column">
+                                <h5 className="text-primary my-2 my-sm-0 d-flex flex-sm-row flex-column justify-content-center align-items-center">
                                     <del className={styles.formerAmount}>
                                         <span>₦20,000</span>
                                     </del>
