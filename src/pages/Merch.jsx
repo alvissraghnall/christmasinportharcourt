@@ -1,40 +1,52 @@
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import styles from './styles/Merch.module.css';
+import { motion } from 'framer-motion';
 
 const ProductCard = ({ image, discount, title, price, link, options }) => {
+    const cardVariants = {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+    };
+
     return (
-        <div class="align-self-stretch bg-transparent h-auto col-12 col-sm-6 col-lg-4">
-            <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
-                <div class="card-img position-relative">
-                    <div class="card-badges">
-                        <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span> Sale</span>
+        <motion.div
+            className="align-self-stretch bg-transparent h-auto col-12 col-sm-6 col-lg-4"
+            variants={cardVariants}
+        >
+            <div
+                className="card border border-transparent position-relative overflow-hidden h-100 transparent"
+            >
+                <div className="card-img position-relative">
+                    <div className="card-badges">
+                        <span className="badge badge-card">
+                            <span className="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span>
+                            Sale
+                        </span>
                     </div>
-                    <picture class={"d-block mb-4 position-relative overflow-hidden bg-light " + styles.imgClipShapeOne}>
-                        <img className="w-100 img-fluid position-relative z-index-10" src={image} alt={title} />
+                    <picture className={"d-block mb-4 position-relative overflow-hidden bg-light " + styles.imgClipShapeOne}>
+                        <motion.img
+                            className="w-100 img-fluid position-relative z-index-10"
+                            src={image}
+                            alt={title}
+                            whileHover={{ scale: 0.85 }}
+                            transition={{ duration: .3, ease: "easeInOut" }}
+                            style={{ cursor: "pointer" }}
+                        />
                     </picture>
                 </div>
 
-                <div class="card-body px-0">
-                    <Link to={`/merch/${link}`} class="text-decoration-none link-cover" style={{ textDecoration: "none", color: "#111827" }}>{ title }</Link>
-                    <small class="text-muted d-block">{ options }</small>
-                    <p class="mt-2 mb-0 small"><s class="text-muted">₦ { price }</s> <span class="text-danger">₦ {price - (price * discount / 100) }</span></p>
-                    
-                    {/* <p class="mt-2 mb-0 small">{{ currency }}{{ price }}</p> */}
-                    
+                <div className="card-body px-0">
+                    <Link to={`/merch/${link}`} className="text-decoration-none link-cover lead fw-bold" style={{ textDecoration: "none", color: "#111827" }}>
+                        {title}
+                    </Link>
+                    <small className={"text-muted d-block " + styles.titleSmall}>{options}</small>
+                    <p className={"mt-2 mb-0 small " + styles.merchPrice}>
+                        <s className="text-muted">₦{price}</s> <span className="text-success">₦{price - (price * discount / 100)}</span>
+                    </p>
                 </div>
             </div>
-            {/* <div class="me-xl-n4 me-xxl-n5" >
-                <picture class={"d-block mb-4 " + styles.imgClipShapeOne}>
-                    <img className="w-100" src={image} alt={title} />
-                </picture>
-                <p className={`mb-2 text-muted ${styles.titleSmall}`}>{title}</p>
-                <h4 className="lead fw-bold">{price}</h4>
-                <Link to={`/merch/${link}`} className={"btn align-self-start " + styles.btnPseudo}>
-                    Buy Now
-                </Link>
-            </div> */}
-        </div>
+        </motion.div>
     );
 };
 
@@ -45,7 +57,7 @@ const products = [
         price: 8000,
         image: 'assets/img/merch/merch-hoodie-01.jpeg',
         link: "hoodie-01",
-        options: "5 sizes, 2 colours",
+        options: "3 sizes, 5 colours",
         discount: 20
     },
     {
@@ -63,7 +75,7 @@ const products = [
         price: 8000,
         image: 'assets/img/merch/merch-hoodie-03.jpeg',
         link: "hoodie-01",
-        options: "5 sizes, 2 colours",
+        options: "2 sizes, 2 colours",
         discount: 20
     },
     {
@@ -73,7 +85,7 @@ const products = [
         image: 'assets/img/merch/merch-shirt-02.jpeg',
         link: "hoodie-01",
         options: "5 sizes, 2 colours",
-        discount: 20
+        discount: 30
     },
     {
         id: 2,
@@ -81,8 +93,8 @@ const products = [
         price: 8000,
         image: 'assets/img/merch/merch-shirt-01.jpeg',
         link: "hoodie-01",
-        options: "5 sizes, 2 colours",
-        discount: 20
+        options: "4 sizes, 1 colour",
+        discount: 30
     },
 ];
 
