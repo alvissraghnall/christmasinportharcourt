@@ -73,8 +73,8 @@ export default function Ticket() {
                                     <label htmlFor="amount" className="form-label fs-base">Select ticket type</label>
                                     <select id="amount" onChange={(e) => setAmount(e.target.value)} className="form-select form-select-lg" required>
                                         <option value='0' selected disabled>Choose ticket category</option>
-                                        <option value="1500">Regular (₦1,500)</option>
-                                        <option value="5000">VIP (₦5,000)</option>
+                                        <option value="3000">Regular (₦3,000)</option>
+                                        <option value="10000">VIP (₦10,000)</option>
                                     </select>
                                     <div className="invalid-feedback position-absolute start-0 top-100">Please choose your state!</div>
                                 </div>
