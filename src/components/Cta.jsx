@@ -8,7 +8,7 @@ export default function Cta() {
       <motion.section
         className="bg-gradient-primary py-5"
         initial={{ opacity: 0 }}
-        animate={{ x: [-1000, 0], opacity: [0,1] }}
+        animate={{ x: [-1000, 0], opacity: [0, 1] }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
       >
@@ -51,12 +51,18 @@ export default function Cta() {
                 </motion.div>
                 <motion.p
                   className="fs-xl text-light ps-3 mb-0"
-                  whileInView={{opacity: [0,1]}}
+                  whileInView={{ opacity: [0, 1] }}
                   transition={{ delay: 0.6, duration: 0.4 }}
                 >
                   Hurry up! Early birds extended until November 30th, 2023.
                 </motion.p>
               </div>
+
+              <Link to="/artiste-registration" style={{ width: "100%", textDecoration: "none", color: "white" }}>
+                <button type='button' className="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" style={{ width: "100%", marginTop: "2rem" }}>
+                  Register as a performing Artiste
+                </button>
+              </Link>
             </div>
             <motion.div
               className="col-xl-6 col-lg-7 order-lg-1"
@@ -110,7 +116,7 @@ export default function Cta() {
                       transition={{ delay: 0.6, duration: 0.6 }}
                       style={{ gap: "1.3rem" }}
                     >
-                      <Link to="/ticket" className="btn btn-primary btn-lg mb-3 mb-sm-0">
+                      <Link to="/ticket" className="btn btn-primary btn-lg mb-3 mb-sm-0" style={{ textTransform: "capitalize" }}>
                         Buy access pass
                       </Link>
                       <motion.div
@@ -142,7 +148,7 @@ export default function Cta() {
 }
 
 
-// Stage name 
-// Demo song to be performed 
+// Stage name
+// Demo song to be performed
 // Their socials iD
 // TnC of  artist selection
