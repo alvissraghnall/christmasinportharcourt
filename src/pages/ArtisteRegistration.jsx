@@ -5,8 +5,9 @@ import { motion, useAnimation } from 'framer-motion';
 const FormComponent = () => {
     const controls = useAnimation();
 
-    const [stageName, setStageName] = useState("")
-    const [demoSong, setDemoSong] = useState("")
+    const [stageName, setStageName] = useState("");
+    const [demoSong, setDemoSong] = useState("");
+    const [profession, setProfession] = useState("");
     const [twitterLink, setTwitterLink] = useState("")
     const [instagramLink, setInstagramLink] = useState("")
 
@@ -18,8 +19,8 @@ const FormComponent = () => {
         });
     };
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (event) => {
+        event.preventDefault();
     }
 
     useEffect(() => {
@@ -34,7 +35,7 @@ const FormComponent = () => {
                 {/* Artiste Signup Form */}
                 <div className="container d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5">
                     <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{ maxWidth: '526px' }}>
-                        <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: [0,.4,1] }} className="text-center text-xl-start">Register as a performing Artiste </motion.h1>
+                        <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: [0, .4, 1] }} className="text-center text-xl-start">Register as a performing Artiste </motion.h1>
                         <form className="needs-validation" noValidate onSubmit={handleSubmit}>
                             <div className="row">
                                 <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
@@ -49,7 +50,7 @@ const FormComponent = () => {
                             <div className="row">
                                 <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                     <div className="position-relative mb-4">
-                                        <label htmlFor="demoSong" className="form-label fs-base">Demo Song</label>
+                                        <label htmlFor="demoSong" className="form-label fs-base">Demo Song Link</label>
                                         <input value={demoSong} type="text" id="demoSong" onChange={(e) => setDemoSong(e.target.value)} className="form-control form-control-lg" required />
                                         <div className="invalid-feedback position-absolute start-0 top-100">Please enter your Demo Song!</div>
                                     </div>
@@ -86,27 +87,47 @@ const FormComponent = () => {
                                 </motion.div>
                             </div>
 
+                            <div className="row">
+                                <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
+                                    <div className="position-relative mb-4">
+                                        <label htmlFor="profession" className="form-label fs-base">Select your profession</label>
+                                        <select id="profession" style={{ cursor: "pointer" }} onChange={(e) => setProfession(e.target.value)} className="form-select form-select-lg" required>
+                                            <option value='' selected disabled>Choose Profession</option>
+                                            <option value="dj">Disc Jockey (DJ) </option>
+                                            <option value="comedian">Stand-up Comedian</option>
+                                            <option value="musician">Musician</option>
+                                        </select>
+                                        <div className="invalid-feedback position-absolute start-0 top-100">Please enter your profession!</div>
+                                    </div>
+                                </motion.div>
+                            </div>
+
                             <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                 <div className="position-relative mb-4">
                                     <label htmlFor="tnc" className="form-label fs-base">TnC of Artist Selection</label>
+                                    <p>By submitting this form, you agree to the following Terms and Conditions for Artist Selection:</p>
                                     <ul id="tnc">
-                                        By submitting this form, you agree to the following Terms and Conditions for Artist Selection:
-                                       <li>All information provided is accurate and truthful.</li>
-                                       <li>Your presence performing at Christmas in Port Harcourt stage can sell at least 10 tickets to your fans and appeal to more.</li>
-                                       <li>You will actively promote Christmas in Port Harcourt on all your social media channels.</li>
-                                       <li>The selection process is at the discretion of the organizers.</li>
-                                       <li>Artistes are expected to abide by the rules and regulations of the event.</li>
-                                       <li>The organizers reserve the right to disqualify any artist for violation of rules.</li>
-                                       <li>Your songs and videos would be used for promotional sevices by Christmas in Port Harcourt.</li>
+                                        <li>All information provided is accurate and truthful.</li>
+                                        <li>Your presence performing at Christmas in Port Harcourt stage can sell at least 10 tickets to your fans and appeal to more.</li>
+                                        <li>You will actively promote Christmas in Port Harcourt on all your social media channels.</li>
+                                        <li>The selection process is at the discretion of the organizers.</li>
+                                        <li>Artistes are expected to abide by the rules and regulations of the event.</li>
+                                        <li>The organizers reserve the right to disqualify any artist for violation of rules.</li>
+                                        <li>Your songs and videos would be used for promotional sevices by Christmas in Port Harcourt.</li>
                                     </ul>
                                 </div>
                             </motion.div>
+
+
+                            <button type='submit' className="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" style={{ width: "100%" }}>
+                                Register
+                            </button>
 
                         </form>
                     </div>
                 </div>
                 {/* Background */}
-                <div className="position-fixed top-0 end-0 w-50 h-100 bg-position-center bg-repeat-0 bg-size-cover d-none d-xl-block" style={{backgroundImage: 'url(assets/img/closedbg.jpg)'}} />
+                <div className="position-fixed top-0 end-0 w-50 h-100 bg-position-center bg-repeat-0 bg-size-cover d-none d-xl-block" style={{ backgroundImage: 'url(assets/img/closedbg.jpg)' }} />
 
             </section>
 
