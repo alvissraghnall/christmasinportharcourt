@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 // import { Navigate } from 'react-router-dom'
+import { motion, useAnimation } from 'framer-motion';
 import { PaystackButton } from 'react-paystack'
 import NavbarLight from '../components/NavbarLight'
 
 export default function Ticket() {
+    const controls = useAnimation();
     const publicKey = "pk_live_ca29b8b11c2a076e05f003f4f4ff697ab37a387c"
     const [amount, setAmount] = useState("")
     const [email, setEmail] = useState("")
@@ -33,6 +35,18 @@ export default function Ticket() {
         onClose: () => alert("Wait! Don't leave :("),
     }
 
+    const startAnimation = async () => {
+        await controls.start({
+            x: 0, // Adjust the x position as needed
+            opacity: 1, // Fade in
+            transition: { duration: 0.5 },
+        });
+    };
+
+    useEffect(() => {
+        startAnimation();
+    }, []);
+
   return (
     
     <div>
@@ -44,41 +58,41 @@ export default function Ticket() {
             {/* Sign up form */}
             <div className="container d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5">
                 <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{maxWidth: '526px'}}>
-                    <h1 className="text-center text-xl-start">Buy your Ticket</h1>
+                    <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: [0,.4,1] }} className="text-center text-xl-start">Buy your Ticket</motion.h1>
                     <form className="needs-validation" noValidate>
                         <div className="row">
-                            <div className="col-12">
+                            <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                 <div className="position-relative mb-4">
                                     <label htmlFor="name" className="form-label fs-base">Full name</label>
                                     <input type="text" id="name" onChange={(e) => setName(e.target.value)} className="form-control form-control-lg" required />
                                     <div className="invalid-feedback position-absolute start-0 top-100">Please enter your name!</div>
                                 </div>
-                            </div>
-                            <div className="col-12">
+                            </motion.div>
+                            <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                 <div className="position-relative mb-4">
                                     <label htmlFor="email" className="form-label fs-base">Email</label>
                                     <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} className="form-control form-control-lg" required />
                                     <div className="invalid-feedback position-absolute start-0 top-100">Please enter a valid email address!</div>
                                 </div>
-                            </div>
-                            <div className="col-12">
+                            </motion.div>
+                            <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                 <div className="position-relative mb-4">
                                     <label htmlFor="phone" className="form-label fs-base">Phone </label>
                                     <input type="tel" id="phone" onChange={(e) => setPhone(e.target.value)} className="form-control form-control-lg" required />
                                     <div className="invalid-feedback position-absolute start-0 top-100">Please enter a password!</div>
                                 </div>
-                            </div>
-                            <div className="col-12">
+                            </motion.div>
+                            <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                 <div className="position-relative mb-4">
                                     <label htmlFor="amount" className="form-label fs-base">Select ticket type</label>
                                     <select id="amount" onChange={(e) => setAmount(e.target.value)} className="form-select form-select-lg" required>
                                         <option value='0' selected disabled>Choose ticket category</option>
-                                        <option value="1500">Regular (₦1,500)</option>
-                                        <option value="5000">VIP (₦5,000)</option>
+                                        <option value="3000">Regular (₦3,000)</option>
+                                        <option value="10000">VIP (₦10,000)</option>
                                     </select>
                                     <div className="invalid-feedback position-absolute start-0 top-100">Please choose your state!</div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     </form>
                     <PaystackButton {...componentProps} className="btn btn-danger btn-lg w-100 mt-2" />
