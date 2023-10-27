@@ -5,6 +5,7 @@ import MaidenEdition from './gallery/MaidenEdition'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
+import ArtisteRegistration from './pages/ArtisteRegistration';
 import Ticket from './pages/Ticket'
 import Merch from './pages/Merch';
 import TicketClosed from './pages/TicketClosed'
@@ -29,12 +30,13 @@ function App() {
               <Route index element={<Home />} />
               <Route path='/about' element={<About />} />
               <Route path='/contact' element={<Contact />} />
-              <Route path='/merch' index element={<Merch />} />
+              <Route exact path='/merch' element={<Merch />} />
               <Route path='/gallery-v1' element={<MaidenEdition />} />
               <Route path='/gallery-v2' element={<HomeComing />} />
 
             </Route>
             <Route path='/ticket' element={<Ticket />} />
+            <Route path='/artiste-registration' element={<ArtisteRegistration />} />
             <Route path="/closed" element={<TicketClosed />} />
           </Routes>
         </ScrollToTop>
