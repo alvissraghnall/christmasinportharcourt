@@ -57,7 +57,7 @@ const FormComponent = () => {
                                 </motion.div>
                             </div>
 
-                            <div className="row">
+                            {/*<div className="row">
                                 <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                     <div className="position-relative mb-4">
                                         <label htmlFor="instagramLink" className="form-label fs-base">Instagram Profile Link</label>
@@ -65,7 +65,7 @@ const FormComponent = () => {
                                         <div className="invalid-feedback position-absolute start-0 top-100">Please enter your Fecebook Profile Link!</div>
                                     </div>
                                 </motion.div>
-                            </div>
+                            </div> */}
 
                             <div className="row">
                                 <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
