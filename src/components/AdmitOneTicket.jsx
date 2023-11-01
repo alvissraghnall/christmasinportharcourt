@@ -4,6 +4,7 @@ import QRCode from "react-qr-code";
 
 const Ticket = () => {
     const ticketID = 5556686877;
+    const kind = "REGULAR"
   return (
     <div className={styles.ticket}>
       <div className={styles.left}>
@@ -46,7 +47,7 @@ const Ticket = () => {
         </p>
         <div className={styles.rightInfoContainer}>
           <div className={styles.showName}>
-            <h1>CIPH</h1>
+            <h1>{kind}</h1>
           </div>
           <div className={styles.time}>
             <p>8:00 AM <span>TO</span> 11:00 PM</p>

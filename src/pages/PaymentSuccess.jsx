@@ -3,7 +3,7 @@ import Ticket from '../components/AdmitOneTicket';
 function PaymentSuccess() {
   return (
     <div style={{
-        height: "100vh",
+        minHeight: "100svh",
         fontFamily: "'Staatliches', cursive",
         background: "#d83565",
         color: "black",
