@@ -21,7 +21,24 @@ const FormComponent = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-    }
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                profession, instagramLink, twitterLink, stageName, demoSong
+            })
+        };
+        fetch(`${import.meta.env.URL}/artiste-register`, options)
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response);
+                alert("Artiste Registration complete!");
+            }).catch((err) =>
+                console.error(err));
+
+    };
 
     useEffect(() => {
         startAnimation();

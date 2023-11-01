@@ -53,7 +53,7 @@ const Ticket = () => {
             {/* <p>DOORS <span>@</span> 7:00 PM</p> */}
           </div>
           <div className={styles.barcode}>
-            <img src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb" alt="QR code" />
+            {/* <img src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb" alt="QR code" /> */}
             <QRCode value={ticketID}  />
           </div>
           <p className={styles.ticketNumber}>

@@ -49,7 +49,7 @@ export default function Ticket() {
     };
 
     function createOrder() {
-        return fetch(`${URL}/api/orders`, {
+        return fetch(`${import.meta.env.URL}/api/orders`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -64,21 +64,39 @@ export default function Ticket() {
             .then((order) => order.id);
     }
 
-    function onApprove(data) {
-        return fetch(`${URL}/api/orders/${data.orderID}/capture`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                orderID: data.orderID
-            })
-        })
-            .then((response) => response.json())
-            .then((orderData) => {
-                const name = orderData.payer.name.given_name;
-                alert(`Transaction completed by ${name}`);
+    async function onApprove(data) {
+        try {
+            const response = await fetch(`${import.meta.env.URL}/api/orders/${data.orderID}/capture`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    orderID: data.orderID
+                })
             });
+            const orderData = await response.json();
+            const name = orderData.payer.name.given_name;
+            alert(`Transaction completed by ${name}`);
+
+            fetch(`${import.meta.env.URL}/ticket`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    profession, instagramLink, twitterLink, stageName, demoSong
+                })
+            })
+                .then((response) => response.json())
+                .then((response) => {
+                    console.log(response);
+                    alert("Artiste Registration complete!");
+                }).catch((err) =>
+                    console.error(err));
+        } catch (error) {
+            alert("An error occured!");
+        }
 
     }
 
@@ -148,18 +166,3 @@ export default function Ticket() {
         </div>
     )
 }
-
-/**
- * # If you haven't done this already
-npm install @xata.io/cli -g
-xata auth login
-
-# Navigate to your project
-cd ~/your-project
-
-# Initialize your project locally with the Xata CLI
-xata init --db https://xavier-s-workspace-uot3ms.eu-central-1.xata.sh/db/ciph
-
-# Run pull to update your client, migrations and types
-xata pull
- */
