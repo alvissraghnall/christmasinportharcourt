@@ -172,7 +172,7 @@
     height: 100px;
 }
 
-.barcode img {
+.barcode > svg {
     height: 100%;
 }
 

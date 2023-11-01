@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './styles/AdmitOneTicket.module.css';
+import QRCode from "react-qr-code";
 
 const Ticket = () => {
+    const ticketID = 5556686877;
   return (
     <div className={styles.ticket}>
       <div className={styles.left}>
@@ -12,7 +14,7 @@ const Ticket = () => {
             <span>ADMIT ONE</span>
           </p>
           <div className={styles.ticketNumber}>
-            <p>#20030220</p>
+            <p>#{ticketID}</p>
           </div>
         </div>
         <div className={styles.ticketInfo}>
@@ -52,9 +54,10 @@ const Ticket = () => {
           </div>
           <div className={styles.barcode}>
             <img src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb" alt="QR code" />
+            <QRCode value={ticketID}  />
           </div>
           <p className={styles.ticketNumber}>
-            #20030220
+            #{ticketID}
           </p>
         </div>
       </div>

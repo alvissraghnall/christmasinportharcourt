@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 import "dotenv/config";
 import path from "path";
   
-const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PORT = 8888 } = process.env;
+const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, URL, PORT = 8888 } = process.env;
 const base = "https://api-m.sandbox.paypal.com";
 const app = express();
   
@@ -44,22 +44,26 @@ const generateAccessToken = async () => {
 * Create an order to start the transaction.
 * @see https://developer.paypal.com/docs/api/orders/v2/#orders_create
 */
-const createOrder = async (cart) => {
+const createOrder = async (details) => {
   // use the cart information passed from the front-end to calculate the purchase unit details
   console.log(
     "shopping cart information passed from the frontend createOrder() callback:",
-    cart,
+    details,
   );
   
   const accessToken = await generateAccessToken();
   const url = `${base}/v2/checkout/orders`;
   const payload = {
     intent: "CAPTURE",
+    redirect_urls: {
+        "return_url": URL + "/payment-success",
+        "cancel_url": URL + "/cancel-payment"
+    },
     purchase_units: [
       {
         amount: {
           currency_code: "USD",
-          value: "100.00",
+          value: details.amount,
         },
       },
     ],
@@ -122,7 +126,7 @@ async function handleResponse(response) {
 app.post("/api/orders", async (req, res) => {
   try {
     // use the cart information passed from the front-end to calculate the order amount detals
-    const { cart } = req.body;
+    const { details } = req.body;
     const { jsonResponse, httpStatusCode } = await createOrder(cart);
     res.status(httpStatusCode).json(jsonResponse);
   } catch (error) {
