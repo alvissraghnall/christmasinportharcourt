@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 // import { Navigate } from 'react-router-dom'
 import { motion, useAnimation } from 'framer-motion';
-import { PaystackButton } from 'react-paystack'
+// import { PaystackButton } from 'react-paystack'
+import { PayPalButtons } from "@paypal/react-paypal-js";
 import NavbarLight from '../components/NavbarLight'
 
 export default function Ticket() {
@@ -33,6 +34,10 @@ export default function Ticket() {
             alert("Welcome on board!")
         },
         onClose: () => alert("Wait! Don't leave :("),
+    }
+
+    const validateForm = ev => {
+        ev.preventDefault();
     }
 
     const startAnimation = async () => {
@@ -85,17 +90,17 @@ export default function Ticket() {
                             <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                 <div className="position-relative mb-4">
                                     <label htmlFor="amount" className="form-label fs-base">Select ticket type</label>
-                                    <select id="amount" onChange={(e) => setAmount(e.target.value)} className="form-select form-select-lg" required>
-                                        <option value='0' selected disabled>Choose ticket category</option>
-                                        <option value="3000">Regular (₦3,000)</option>
-                                        <option value="10000">VIP (₦10,000)</option>
+                                    <select defaultValue={3000} id="amount" onChange={(e) => setAmount(e.target.value)} className="form-select form-select-lg" required>
+                                        <option value='0' disabled>Choose ticket category</option>
+                                        <option value={3000}>Regular (₦3,000)</option>
+                                        <option value={10000}>VIP (₦10,000)</option>
                                     </select>
                                     <div className="invalid-feedback position-absolute start-0 top-100">Please choose an amount!</div>
                                 </div>
                             </motion.div>
                         </div>
                     </form>
-                    <PaystackButton {...componentProps} className="btn btn-danger btn-lg w-100 mt-2" />
+                    <PayPalButtons onClick={validateForm} style={{ layout: "horizontal" }} className="btn btn-danger btn-lg w-100 mt-2" />
                 </div>
                 <div className="w-100 align-self-end">
                     <span className="opacity-80">© {(new Date().getFullYear())} CIPH. All rights reserved. Built by <a href="https://www.webify.com.ng" target="_blank" rel="noopener noreferrer">Webify</a></span>
