@@ -7,7 +7,7 @@ const FormComponent = () => {
 
     const [stageName, setStageName] = useState("");
     const [demoSong, setDemoSong] = useState("");
-    const [profession, setProfession] = useState("");
+    const [profession, setinstagramLink] = useState("");
     const [twitterLink, setTwitterLink] = useState("")
     const [instagramLink, setInstagramLink] = useState("")
 
@@ -21,7 +21,24 @@ const FormComponent = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-    }
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                profession, instagramLink, twitterLink, stageName, demoSong
+            })
+        };
+        fetch(`${import.meta.env.URL}/api/artiste-register`, options)
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response);
+                alert("Artiste Registration complete!");
+            }).catch((err) =>
+                console.error(err));
+
+    };
 
     useEffect(() => {
         startAnimation();
@@ -70,7 +87,7 @@ const FormComponent = () => {
                             <div className="row">
                                 <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                     <div className="position-relative mb-4">
-                                        <label htmlFor="profession" className="form-label fs-base">Instagram Profile Link</label>
+                                        <label htmlFor="instagramLink" className="form-label fs-base">Instagram Profile Link</label>
                                         <input value={instagramLink} type="text" id="instagramLink" onChange={(e) => setInstagramLink(e.target.value)} className="form-control form-control-lg" required />
                                         <div className="invalid-feedback position-absolute start-0 top-100">Please enter your Fecebook Profile Link!</div>
                                     </div>
@@ -91,8 +108,8 @@ const FormComponent = () => {
                                 <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                     <div className="position-relative mb-4">
                                         <label htmlFor="profession" className="form-label fs-base">Select your profession</label>
-                                        <select id="profession" style={{ cursor: "pointer" }} onChange={(e) => setProfession(e.target.value)} className="form-select form-select-lg" required>
-                                            <option value='' selected disabled>Choose Profession</option>
+                                        <select id="profession" value={profession} style={{ cursor: "pointer" }} onChange={(e) => setProfession(e.target.value)} className="form-select form-select-lg" required>
+                                            <option value='' disabled>Choose Profession</option>
                                             <option value="dj">Disc Jockey (DJ) </option>
                                             <option value="comedian">Stand-up Comedian</option>
                                             <option value="musician">Musician</option>

@@ -11,6 +11,7 @@ import Merch from './pages/Merch';
 import TicketClosed from './pages/TicketClosed'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import PaymentSuccess from './pages/PaymentSuccess';
 
 const Layout = () => (
   <>
@@ -36,6 +37,7 @@ function App() {
 
             </Route>
             <Route path='/ticket' element={<Ticket />} />
+            <Route path='/payment-success' element={<PaymentSuccess />} />
             <Route path='/artiste-registration' element={<ArtisteRegistration />} />
             <Route path="/closed" element={<TicketClosed />} />
           </Routes>
