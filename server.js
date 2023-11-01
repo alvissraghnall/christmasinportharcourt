@@ -146,7 +146,7 @@ app.post("/api/orders/:orderID/capture", async (req, res) => {
   }
 });
 
-app.post("/artiste-register", async (req, res) => {
+app.post("/api/artiste-register", async (req, res) => {
   try {
     const { details } = req.body;
     fetch(`${process.env.XATA_DATABASE_URL}`, {
@@ -165,7 +165,7 @@ app.post("/artiste-register", async (req, res) => {
   }
 });
 
-app.post("/ticket", async (req, res) => {
+app.post("/api/ticket", async (req, res) => {
   try {
     const { details } = req.body;
     fetch(`${process.env.XATA_DATABASE_URL}`, {

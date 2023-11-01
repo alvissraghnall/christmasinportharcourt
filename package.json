@@ -31,7 +31,8 @@
     "eject": "react-scripts eject",
     "start": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "yarn server.js"
   },
   "eslintConfig": {
     "extends": [

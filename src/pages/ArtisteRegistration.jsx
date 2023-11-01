@@ -30,7 +30,7 @@ const FormComponent = () => {
                 profession, instagramLink, twitterLink, stageName, demoSong
             })
         };
-        fetch(`${import.meta.env.URL}/artiste-register`, options)
+        fetch(`${import.meta.env.URL}/api/artiste-register`, options)
             .then((response) => response.json())
             .then((response) => {
                 console.log(response);

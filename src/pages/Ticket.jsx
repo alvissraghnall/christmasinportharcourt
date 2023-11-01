@@ -79,7 +79,7 @@ export default function Ticket() {
             const name = orderData.payer.name.given_name;
             alert(`Transaction completed by ${name}`);
 
-            fetch(`${import.meta.env.URL}/ticket`, {
+            fetch(`${import.meta.env.URL}/api/ticket`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
