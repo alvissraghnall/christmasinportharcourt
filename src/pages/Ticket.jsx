@@ -5,11 +5,13 @@ import styles from './styles/Ticket.module.css';
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import NavbarLight from '../components/NavbarLight';
 import { validators } from '../validator';
+import { useNavigate } from "react-router-dom";
 import { positions, transitions, types, useAlert } from 'react-alert'
 
 export default function Ticket() {
     const controls = useAnimation();
     const reactAlert = useAlert();
+    const navigate = useNavigate();
 
     const publicKey = "pk_live_ca29b8b11c2a076e05f003f4f4ff697ab37a387c"
     const [loading, setLoading] = useState(false);
@@ -197,27 +199,11 @@ export default function Ticket() {
                     reactAlert.show("Ticket purchase successful!", {
                         type: 'success'
                     });;
-                    setFormData({
-                        name: {
-                            touched: false,
-                            error: true,
-                            value: ''
-                        },
-                        email: {
-                            touched: false,
-                            error: true,
-                            value: ''
-                        },
-                        amount: {
-                            touched: false,
-                            error: true,
-                            value: 3000
-                        },
-                        phone: {
-                            touched: false,
-                            error: true,
-                            value: ''
-                        },
+                    navigate(`/payment-success?id=${data.orderID}&type=${ticket.kind}`, {
+                        state: {
+                            id: data.orderID,
+                            kind: ticket.kind
+                        }
                     });
                 })
         } catch (error) {
