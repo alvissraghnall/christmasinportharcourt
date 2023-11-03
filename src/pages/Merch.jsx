@@ -42,7 +42,7 @@ const ProductCard = ({ image, discount, title, price, link, options }) => {
                     </Link>
                     <small className={"text-muted d-block " + styles.titleSmall}>{options}</small>
                     <p className={"mt-2 mb-0 small " + styles.merchPrice}>
-                        <s className="text-muted">₦{price}</s> <span className="text-success">₦{price - (price * discount / 100)}</span>
+                        <s className="text-muted ">₦{Math.round(price)}</s> <span className="text-success">₦{Math.round(price - (price * discount / 100))}</span>
                     </p>
                 </div>
             </div>
@@ -54,16 +54,16 @@ const products = [
     {
         id: 1,
         title: 'CIPH Hoodie',
-        price: 31000,
+        price: 31250,
         image: 'assets/img/merch/merch-hoodie-01.jpeg',
         link: "hoodie-01",
-        options: "3 sizes, 5 colours",
+        options: "3 sizes, 4 colours",
         discount: 20
     },
     {
         id: 2,
         title: 'CIPH Hoodie',
-        price: 31000,
+        price: 31250,
         image: 'assets/img/merch/merch-hoodie-02.jpeg',
         link: "hoodie-01",
         options: "5 sizes, 2 colours",
@@ -72,7 +72,7 @@ const products = [
     {
         id: 2,
         title: 'CIPH Hoodie',
-        price: 31000,
+        price: 31250,
         image: 'assets/img/merch/merch-hoodie-03.jpeg',
         link: "hoodie-01",
         options: "2 sizes, 2 colours",
@@ -81,7 +81,7 @@ const products = [
     {
         id: 2,
         title: 'CIPH Shirt',
-        price: 11420,
+        price: 11428,
         image: 'assets/img/merch/merch-shirt-02.jpeg',
         link: "hoodie-01",
         options: "5 sizes, 2 colours",
@@ -90,7 +90,7 @@ const products = [
     {
         id: 2,
         title: 'CIPH Shirt',
-        price: 11420,
+        price: 11428,
         image: 'assets/img/merch/merch-shirt-01.jpeg',
         link: "hoodie-01",
         options: "4 sizes, 1 colour",
