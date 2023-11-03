@@ -7,14 +7,14 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 /** @type('@paypal/react-paypal-js').ReactPayPalScriptOptions */
 const initialOptions = {
-  clientId: import.meta.env.CLIENT_ID,
+  clientId: import.meta.env.VITE_PAYPAL_CLIENT_ID,
   currency: "USD",
   intent: "capture",
   commit: true,
 
 };
 
-
+console.log(import.meta.env.VITE_PAYPAL_CLIENT_ID);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
