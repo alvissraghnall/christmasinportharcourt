@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import NavbarLight from '../components/NavbarLight';
 import { motion, useAnimation } from 'framer-motion';
 import client from '../sanity-client';
-
+import { toast } from 'react-toastify';
 
 const FormComponent = () => {
     const controls = useAnimation();
@@ -35,7 +35,7 @@ const FormComponent = () => {
 
         const artiste = {
             _type: 'artiste',
-            stageName: stageName.value,
+            stageName: stageName,
             demoSong,
             profession: profession,
             instagramLink, twitterLink
@@ -43,9 +43,16 @@ const FormComponent = () => {
 
         client.create(artiste)
             .then(() => {
-                setLoading(false);
-                setIsFormSubmitted(true);
+                toast.success("Artiste successfully registered!");
+                setStageName('');
+                setProfession('');
+                setInstagramLink('');
+                setTwitterLink('');
+                setDemoSong('');
             })
+            .catch(err => {
+                toast.error("Something went terribly wrong...");
+            });
 
         // fetch(`${import.meta.env.URL}/api/artiste-register`, options)
         //     .then((response) => response.json())

@@ -1,8 +1,10 @@
 import {createClient} from "@sanity/client";
 
 export default createClient({
-    projectId: "6xo5t4re",
+    projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
     dataset: "production",
     useCdn: true,
-    apiVersion: "2022-03-08"
+    apiVersion: "2022-03-08",
+    token: import.meta.env.VITE_SANITY_TOKEN,
+    ignoreBrowserTokenWarning: true,
 });
