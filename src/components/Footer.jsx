@@ -21,10 +21,10 @@ export default function Footer() {
                         <a href="https://www.instagram.com/christmasinportharcourtng" target="_blank" rel="noopener noreferrer" className="btn btn-icon btn-secondary btn-instagram mx-2">
                             <i className="bx bxl-instagram" />
                         </a>
-                        <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer" className="btn btn-icon btn-secondary btn-youtube mx-2">
+                        <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer" className="btn btn-icon btn-secondary btn-facebook mx-2" style={{ background: "rgba(255, 255, 255, .06)" }}>
                             <svg
                                 className="w-6 h-6 text-blue-300 fill-current"
-                                style={{ height: "1.5rem", width: "1.5rem", color: "blue", fill: "currentcolor" }}
+                                style={{ height: "1.3rem", width: "1.3rem", color: "white", fill: "currentcolor" }}
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24">
                                 <path
