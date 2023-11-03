@@ -222,7 +222,6 @@ export default function Ticket() {
     return (
 
         <div>
-            {/* <Navigate to='/closed' /> */}
 
             <NavbarLight />
 
