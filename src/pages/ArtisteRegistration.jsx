@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 import NavbarLight from '../components/NavbarLight';
 import { motion, useAnimation } from 'framer-motion';
+import client from '../sanity-client';
+
 
 const FormComponent = () => {
     const controls = useAnimation();
 
     const [stageName, setStageName] = useState("");
     const [demoSong, setDemoSong] = useState("");
-    const [profession, setinstagramLink] = useState("");
+    const [profession, setProfession] = useState("");
     const [twitterLink, setTwitterLink] = useState("")
     const [instagramLink, setInstagramLink] = useState("")
 
@@ -30,13 +32,28 @@ const FormComponent = () => {
                 profession, instagramLink, twitterLink, stageName, demoSong
             })
         };
-        fetch(`${import.meta.env.URL}/api/artiste-register`, options)
-            .then((response) => response.json())
-            .then((response) => {
-                console.log(response);
-                alert("Artiste Registration complete!");
-            }).catch((err) =>
-                console.error(err));
+
+        const artiste = {
+            _type: 'artiste',
+            stageName: stageName.value,
+            demoSong,
+            profession: profession,
+            instagramLink, twitterLink
+        }
+
+        client.create(artiste)
+            .then(() => {
+                setLoading(false);
+                setIsFormSubmitted(true);
+            })
+
+        // fetch(`${import.meta.env.URL}/api/artiste-register`, options)
+        //     .then((response) => response.json())
+        //     .then((response) => {
+        //         console.log(response);
+        //         alert("Artiste Registration complete!");
+        //     }).catch((err) =>
+        //         console.error(err));
 
     };
 

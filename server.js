@@ -1,10 +1,11 @@
 import express from "express";
 import fetch from "node-fetch";
-import "dotenv/config";
+// import "dotenv/config";
 import path from "path";
 
 const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, URL, PORT = 8888 } = process.env;
-const base = "https://api-m.sandbox.paypal.com";
+console.log(PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, URL);
+const base = "https://api-m.paypal.com";
 const app = express();
 
 // host static files
@@ -34,6 +35,7 @@ const generateAccessToken = async () => {
     });
 
     const data = await response.json();
+    console.log(response, data);
     return data.access_token;
   } catch (error) {
     console.error("Failed to generate Access Token:", error);
@@ -52,6 +54,7 @@ const createOrder = async (details) => {
   );
 
   const accessToken = await generateAccessToken();
+  console.log(accessToken);
   const url = `${base}/v2/checkout/orders`;
   const payload = {
     intent: "CAPTURE",
@@ -59,11 +62,12 @@ const createOrder = async (details) => {
       "return_url": URL + "/payment-success",
       "cancel_url": URL + "/cancel-payment"
     },
+    details,
     purchase_units: [
       {
         amount: {
           currency_code: "USD",
-          value: details.amount,
+          value: (parseInt(details.amount) / 1350).toFixed(2),
         },
       },
     ],
@@ -127,11 +131,11 @@ app.post("/api/orders", async (req, res) => {
   try {
     // use the cart information passed from the front-end to calculate the order amount detals
     const { details } = req.body;
-    const { jsonResponse, httpStatusCode } = await createOrder(cart);
-    res.status(httpStatusCode).json(jsonResponse);
+    const { jsonResponse, httpStatusCode } = await createOrder(details);
+    return res.status(httpStatusCode).json(jsonResponse);
   } catch (error) {
     console.error("Failed to create order:", error);
-    res.status(500).json({ error: "Failed to create order." });
+    return res.status(500).json({ error: "Failed to create order." });
   }
 });
 
@@ -139,10 +143,10 @@ app.post("/api/orders/:orderID/capture", async (req, res) => {
   try {
     const { orderID } = req.params;
     const { jsonResponse, httpStatusCode } = await captureOrder(orderID);
-    res.status(httpStatusCode).json(jsonResponse);
+    return res.status(httpStatusCode).json(jsonResponse);
   } catch (error) {
     console.error("Failed to create order:", error);
-    res.status(500).json({ error: "Failed to capture order." });
+    return res.status(500).json({ error: "Failed to capture order." });
   }
 });
 
@@ -161,14 +165,14 @@ app.post("/api/artiste-register", async (req, res) => {
       .then((response) => console.log(response));
   } catch (error) {
     console.error("Failed to capture artiste info: ", error);
-    res.status(500).json({ error: "Failed to capture artiste info." });
+     return res.status(500).json({ error: "Failed to capture artiste info." });
   }
 });
 
 app.post("/api/ticket", async (req, res) => {
   try {
     const { details } = req.body;
-    fetch(`${process.env.XATA_DATABASE_URL}`, {
+    return fetch(`${process.env.XATA_DATABASE_URL}/tables/ticket/data`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.XATA_API_KEY}`,
@@ -180,7 +184,7 @@ app.post("/api/ticket", async (req, res) => {
       .then((response) => console.log(response));
   } catch (error) {
     console.error("Failed to capture ticket info: ", error);
-    res.status(500).json({ error: "Failed to capture ticket info." });
+    return res.status(500).json({ error: "Failed to capture ticket info." });
   }
 });
 
