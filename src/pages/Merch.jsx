@@ -54,7 +54,7 @@ const products = [
     {
         id: 1,
         title: 'CIPH Hoodie',
-        price: 8000,
+        price: 31000,
         image: 'assets/img/merch/merch-hoodie-01.jpeg',
         link: "hoodie-01",
         options: "3 sizes, 5 colours",
@@ -63,7 +63,7 @@ const products = [
     {
         id: 2,
         title: 'CIPH Hoodie',
-        price: 8000,
+        price: 31000,
         image: 'assets/img/merch/merch-hoodie-02.jpeg',
         link: "hoodie-01",
         options: "5 sizes, 2 colours",
@@ -72,7 +72,7 @@ const products = [
     {
         id: 2,
         title: 'CIPH Hoodie',
-        price: 8000,
+        price: 31000,
         image: 'assets/img/merch/merch-hoodie-03.jpeg',
         link: "hoodie-01",
         options: "2 sizes, 2 colours",
@@ -81,7 +81,7 @@ const products = [
     {
         id: 2,
         title: 'CIPH Shirt',
-        price: 8000,
+        price: 11420,
         image: 'assets/img/merch/merch-shirt-02.jpeg',
         link: "hoodie-01",
         options: "5 sizes, 2 colours",
@@ -90,7 +90,7 @@ const products = [
     {
         id: 2,
         title: 'CIPH Shirt',
-        price: 8000,
+        price: 11420,
         image: 'assets/img/merch/merch-shirt-01.jpeg',
         link: "hoodie-01",
         options: "4 sizes, 1 colour",
