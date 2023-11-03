@@ -90,11 +90,13 @@ export default function Ticket() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                amount,
-                email,
-                name,
-                phone,
-            }),
+                details: {
+                    amount: amount.value,
+                    email: email.value,
+                    name: name.value,
+                    phone: phone.value,
+                },
+            })
         })
             .then((response) => response.json())
             .then((order) => order.id);
@@ -174,7 +176,9 @@ export default function Ticket() {
                                     <div className="position-relative mb-4">
                                         <label htmlFor="phone" className="form-label fs-base">Phone</label>
                                         <input type="tel" id="phone" name="phone" value={phone.value} onChange={handleInputChange} onBlur={handleBlur} className="form-control form-control-lg" required />
-                                        {(formData.phone.touched && formData.phone.error) && <div className="my-1 text-sm w-100 pl-1 invalid-feedback position-absolute start-0 top-100">Phone Number must be valid!</div>}
+                                        {(formData.phone.touched && !validators.phone(formData.phone.value)) && <div className="my-1 text-sm w-100 pl-1 invalid-feedback position-absolute start-0 top-100">
+                                            Phone Number must be valid!
+                                        </div>}
                                     </div>
                                 </motion.div>
                                 <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
@@ -195,6 +199,8 @@ export default function Ticket() {
                         <span className="opacity-80">&copy; {(new Date().getFullYear())} CIPH. All rights reserved. Built by <a href="https://www.webify.com.ng" target="_blank" rel="noopener noreferrer">Webify</a></span>
                     </div>
                 </div>
+                {/* Background */}
+                <div className="position-fixed top-0 end-0 w-50 h-100 bg-position-center bg-repeat-0 bg-size-cover d-none d-xl-block" style={{ backgroundImage: 'url(assets/img/closedbg.jpg)' }} />
             </section>
         </div>
     );
