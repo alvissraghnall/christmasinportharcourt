@@ -2,6 +2,7 @@ import express from "express";
 import fetch from "node-fetch";
 // import "dotenv/config";
 import path from "path";
+import cors from "cors";
 
 const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, URL, PORT = 8888 } = process.env;
 console.log(PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, URL);
@@ -13,6 +14,10 @@ app.use(express.static("client"));
 
 // parse post params sent in body in json format
 app.use(express.json());
+
+app.use(cors({
+  origin: '*'
+}));
 
 /**
 * Generate an OAuth 2.0 access token for authenticating with PayPal REST APIs.
