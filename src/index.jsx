@@ -2,8 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import reportWebVitals from './reportWebVitals';
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-mui';
 
 /** @type('@paypal/react-paypal-js').ReactPayPalScriptOptions */
 const initialOptions = {
@@ -14,13 +18,25 @@ const initialOptions = {
 
 };
 
-console.log(import.meta.env.VITE_PAYPAL_CLIENT_ID);
+const alertOptions = {
+  // you can also just use 'bottom center'
+  position: positions.MIDDLE,
+  timeout: 6000,
+  offset: '30px',
+  // you can also just use 'scale'
+  transition: transitions.SCALE
+}
+
+// console.log(import.meta.env.VITE_PAYPAL_CLIENT_ID);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <PayPalScriptProvider options={initialOptions}>
-      <App />
-      {/* <PayPalButtons style={{ layout: "horizontal" }} /> */}
+      <AlertProvider template={AlertTemplate} {...alertOptions}>
+        <App />
+        <ToastContainer />
+        {/* <PayPalButtons style={{ layout: "horizontal" }} /> */}
+      </AlertProvider>
     </PayPalScriptProvider>
   </React.StrictMode>
 );

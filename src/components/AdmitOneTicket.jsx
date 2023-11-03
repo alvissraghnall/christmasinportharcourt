@@ -2,9 +2,7 @@ import React from 'react';
 import styles from './styles/AdmitOneTicket.module.css';
 import QRCode from "react-qr-code";
 
-const Ticket = () => {
-    const ticketID = 5556686877;
-    const kind = "REGULAR"
+const Ticket = ({ id: ticketID, kind }) => {
   return (
     <div className={styles.ticket}>
       <div className={styles.left}>

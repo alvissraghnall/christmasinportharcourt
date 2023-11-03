@@ -5,9 +5,14 @@ import styles from './styles/Ticket.module.css';
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import NavbarLight from '../components/NavbarLight';
 import { validators } from '../validator';
+import { useNavigate } from "react-router-dom";
+import { positions, transitions, types, useAlert } from 'react-alert'
 
 export default function Ticket() {
     const controls = useAnimation();
+    const reactAlert = useAlert();
+    const navigate = useNavigate();
+
     const publicKey = "pk_live_ca29b8b11c2a076e05f003f4f4ff697ab37a387c"
     const [loading, setLoading] = useState(false);
     const [alert, setAlert] = useState(false);
@@ -133,7 +138,7 @@ export default function Ticket() {
         console.log(actions);
         if(Object.values(formData).some(el => el.error === true)) {
             console.log(actions, "eej");
-            alert("Please fill out the form completely!");
+            reactAlert.show("Please fill out the form completely!");
             return actions.reject();
         }
         return actions.resolve();
@@ -191,10 +196,21 @@ export default function Ticket() {
             client.create(ticket)
                 .then(() => {
                     setLoading(false);
-                    setAlert(true);
+                    reactAlert.show("Ticket purchase successful!", {
+                        type: 'success'
+                    });;
+                    navigate(`/payment-success?id=${data.orderID}&type=${ticket.kind}`, {
+                        state: {
+                            id: data.orderID,
+                            kind: ticket.kind
+                        }
+                    });
                 })
         } catch (error) {
-            alert("An error occured!");
+            reactAlert.show("Some error occured!", {
+                type: types.ERROR,                
+                transition: transitions.FADE,
+            });
         }
     }
 
