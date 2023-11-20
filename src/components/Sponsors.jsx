@@ -48,7 +48,7 @@ export default function Sponsors() {
                         <SwiperSlide>
                             <div className="swiper-slide">
                                 <Link to='/' className="d-block py-3">
-                                    <img src="assets/img/brands/budweiser.png" className="d-block mx-auto" width={154} alt="Brand" />
+                                    <img src="assets/img/brands/new-soundcity.png" className="d-block mx-auto" width={154} alt="Brand" />
                                 </Link>
                             </div>
                         </SwiperSlide>
@@ -56,7 +56,7 @@ export default function Sponsors() {
                         <SwiperSlide>
                             <div className="swiper-slide">
                                 <Link to='/' className="d-block py-3">
-                                    <img src="assets/img/brands/cool-fm.png" className="d-block mx-auto" width={154} alt="Brand" />
+                                    <img src="assets/img/brands/new-nddc.png" className="d-block mx-auto" width={154} alt="Brand" />
                                 </Link>
                             </div>
                         </SwiperSlide>
@@ -64,7 +64,7 @@ export default function Sponsors() {
                         <SwiperSlide>
                             <div className="swiper-slide">
                                 <Link to='/' className="d-block py-3">
-                                    <img src="assets/img/brands/mtvbase.png" className="d-block mx-auto" width={154} alt="Brand" />
+                                    <img src="assets/img/brands/new-mtv.png" className="d-block mx-auto" width={154} alt="Brand" />
                                 </Link>
                             </div>
                         </SwiperSlide>
@@ -72,12 +72,12 @@ export default function Sponsors() {
                         <SwiperSlide>
                             <div className="swiper-slide">
                                 <Link to='/' className="d-block py-3">
-                                    <img src="assets/img/brands/reelwood.png" className="d-block mx-auto" width={154} alt="Brand" />
+                                    <img src="assets/img/brands/new-rsg.png" className="d-block mx-auto" width={154} alt="Brand" />
                                 </Link>
                             </div>
                         </SwiperSlide>
 
-                        <SwiperSlide>
+                        {/* <SwiperSlide>
                             <div className="swiper-slide">
                                 <Link to='/' className="d-block py-3">
                                     <img src="assets/img/brands/soundcity.png" className="d-block mx-auto" width={154} alt="Brand" />
@@ -99,7 +99,7 @@ export default function Sponsors() {
                                     <img src="assets/img/brands/teller.png" className="d-block mx-auto" width={154} alt="Brand" />
                                 </Link>
                             </div>
-                        </SwiperSlide>
+                        </SwiperSlide> */}
                     </div>
                     {/* Pagination (bullets) */}
                     <div className="swiper-pagination position-relative pt-2 mt-4" />
