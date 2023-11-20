@@ -24,12 +24,12 @@ export default function Sponsors() {
                     pagination={{ clickable: true }}
                     breakpoints={{
                         200: {
-                            spaceBetween: 8,
+                            spaceBetween: 12,
                             slidesPerView: 2
                         },
 
                         300: {
-                            spaceBetween: 8,
+                            spaceBetween: 10,
                             slidesPerView: 2
                         },
 
@@ -44,7 +44,39 @@ export default function Sponsors() {
                         },
                     }}
                     >
-                    <div className="swiper-wrapper">
+                    <div className="swiper-wrapper d-flex justify-center">
+                        <SwiperSlide>
+                            <div className="swiper-slide">
+                                <Link to='/' className="d-block py-3">
+                                    <img src="assets/img/brands/new-soundcity.png" className="d-block mx-auto" width={154} alt="Brand" />
+                                </Link>
+                            </div>
+                        </SwiperSlide>
+
+                        <SwiperSlide>
+                            <div className="swiper-slide">
+                                <Link to='/' className="d-block py-3">
+                                    <img src="assets/img/brands/new-nddc.png" className="d-block mx-auto" width={154} alt="Brand" />
+                                </Link>
+                            </div>
+                        </SwiperSlide>
+
+                        <SwiperSlide>
+                            <div className="swiper-slide">
+                                <Link to='/' className="d-block py-3">
+                                    <img src="assets/img/brands/new-mtv.png" className="d-block mx-auto" width={154} alt="Brand" />
+                                </Link>
+                            </div>
+                        </SwiperSlide>
+
+                        <SwiperSlide>
+                            <div className="swiper-slide">
+                                <Link to='/' className="d-block py-3">
+                                    <img src="assets/img/brands/new-rsg.png" className="d-block mx-auto" width={154} alt="Brand" />
+                                </Link>
+                            </div>
+                        </SwiperSlide>
+
                         <SwiperSlide>
                             <div className="swiper-slide">
                                 <Link to='/' className="d-block py-3">
