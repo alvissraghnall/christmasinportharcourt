@@ -18,7 +18,7 @@ export default function Artists() {
                 <div className="col">
                     <div className="card card-hover border-0 bg-transparent">
                         <div className="position-relative">
-                            <img src="assets/img/avatar/magnito.jpeg" className="rounded-3" alt="Ralph Edwards" />
+                            <img src="assets/img/avatar/new-magnito.png" className="rounded-3" alt="Ralph Edwards" />
                         </div>
                         <div className="card-body text-center p-3">
                             <h2 className="fs-xl fw-semibold pt-0 mb-2">Magnito</h2>
@@ -29,7 +29,7 @@ export default function Artists() {
                 <div className="col">
                     <div className="card card-hover border-0 bg-transparent">
                         <div className="position-relative">
-                            <img src="assets/img/avatar/2slik.jpeg" className="rounded-3" alt="Ralph Edwards" />
+                            <img src="assets/img/avatar/new-2slik.png" className="rounded-3" alt="Ralph Edwards" />
                         </div>
                         <div className="card-body text-center p-3">
                             <h2 className="fs-xl fw-semibold pt-0 mb-2">2slik</h2>
@@ -40,7 +40,7 @@ export default function Artists() {
                 <div className="col">
                     <div className="card card-hover border-0 bg-transparent">
                         <div className="position-relative">
-                            <img src="assets/img/avatar/suni.jpeg" className="rounded-3" alt="Ralph Edwards" />
+                            <img src="assets/img/avatar/new-sunni.png" className="rounded-3" alt="Ralph Edwards" />
                         </div>
                         <div className="card-body text-center p-3">
                             <h2 className="fs-xl fw-semibold pt-0 mb-2">Legendary Suni</h2>
@@ -51,7 +51,7 @@ export default function Artists() {
                 <div className="col">
                     <div className="card card-hover border-0 bg-transparent">
                         <div className="position-relative">
-                            <img src="assets/img/avatar/romeo_wj.jpg" className="rounded-3" alt="Ralph Edwards" />
+                            <img src="assets/img/avatar/new-cavemen.png" className="rounded-3" alt="Ralph Edwards" />
                         </div>
                         <div className="card-body text-center p-3">
                             <h2 className="fs-xl fw-semibold pt-0 mb-2">Romeo WJ</h2>
