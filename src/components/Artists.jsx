@@ -13,7 +13,7 @@ export default function Artists() {
                         <i className=" bx bx-right-arrow-alt fs-4 lh-1 ms-2 me-n1" />
                     </Link>
                 </div>
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-2 mt-lg-4">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-2 mt-lg-4">
 
                     <div className="col">
                         <div className="card card-hover border-0 bg-transparent">
