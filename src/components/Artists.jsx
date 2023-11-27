@@ -18,7 +18,7 @@ export default function Artists() {
                     <div className="col">
                         <div className="card card-hover border-0 bg-transparent">
                             <div className="position-relative">
-                                <img src="assets/img/avatar/magnito.jpg" className="rounded-3" alt="Magnit" />
+                                <img src="assets/img/avatar/magnito.jpg" className="rounded-3" alt="Magnito" />
                             </div>
                             <div className="card-body text-center p-3">
                                 <h2 className="fs-xl fw-semibold pt-0 mb-2">Magnito</h2>
