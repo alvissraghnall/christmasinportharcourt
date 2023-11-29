@@ -146,6 +146,29 @@ export default function Ticket() {
         }
     }
 
+    const paymentParameters = {
+    merchantCode: import.meta.env. VITE_INTERSWITCH_MERCHANT_CODE,
+    payItemID: import.meta.env. VITE_PAY_ITEM_ID,
+    customerEmail: email.value,
+    redirectURL: 'https://www.christmasinportharcourtng.com/payment-success',
+    text: 'Pay Now',
+    mode: 'TEST',
+    transactionReference: Date.now().toString(),
+    amount: amount.value,
+    style: {
+        width: '200px',
+        height: '40px',
+        border: 'none',
+        color: '#fff',
+        backgroundColor: '#ff0000'
+    },
+    customerName: name.value,
+    customerMobileNo: phone.value,
+    callback: (response) => {
+      console.log('response: ', response)
+    }
+  }
+
     useEffect(() => {
         startAnimation();
     }, []);
