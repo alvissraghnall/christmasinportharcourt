@@ -19,6 +19,7 @@
     "react-alert": "^7.0.3",
     "react-alert-template-mui": "^1.0.7",
     "react-dom": "^18.2.0",
+    "react-interswitch": "^1.0.8",
     "react-paystack": "^4.0.1",
     "react-qr-code": "^2.0.12",
     "react-responsive-masonry": "^2.1.7",
