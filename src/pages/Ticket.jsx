@@ -194,7 +194,7 @@ export default function Ticket() {
                                 </motion.div>
                             </div>
                         </form>
-                        <PayPalButtons onClick={validateForm} style={{ layout: "horizontal" }} className="btn p-0 w-100 mt-2" createOrder={createOrder} onApprove={onApprove} disabled={Object.values(formData).some((el) => el.error === true)} />
+                        <InterswitchPay paymentParameters={paymentParameters} className="btn p-0 w-100 mt-2" disabled={Object.values(formData).some((el) => el.error === true)} />
                     </div>
                     <div className="w-100 align-self-end">
                         <span className="opacity-80">&copy; {(new Date().getFullYear())} CIPH. All rights reserved. Built by <a href="https://www.webify.com.ng" target="_blank" rel="noopener noreferrer">Webify</a></span>
