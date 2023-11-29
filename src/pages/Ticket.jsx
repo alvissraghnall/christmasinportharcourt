@@ -4,6 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import styles from './styles/Ticket.module.css';
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import NavbarLight from '../components/NavbarLight';
+import InterswitchPay from '../components/InterswitchPay';
 import { validators } from '../validator';
 import { useNavigate } from "react-router-dom";
 import { positions, transitions, types, useAlert } from 'react-alert';
