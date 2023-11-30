@@ -174,6 +174,39 @@ app.post("/api/artiste-register", async (req, res) => {
   }
 });
 
+app.post('/verify-payment', async (req, res) => {
+  try {
+    const { merchantCode, transactionReference, amount } = req.body;
+
+    // Check if required parameters are provided
+    if (!merchantCode || !transactionReference || !amount) {
+      return res.status(400).json({ error: 'Missing required parameters' });
+    }
+
+    // Perform the verification by making a GET request
+    const apiUrl = `https://webpay.interswitchng.com/collections/api/v1/gettransaction.json?merchantcode=${merchantCode}&transactionreference=${transactionReference}&amount=${amount}`;
+    const response = await fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    // Check the response and send feedback to the user
+    const responseData = await response.json();
+    if (response.ok) {
+      // Successful verification
+      res.json({ success: true, data: responseData });
+    } else {
+      // Verification failed
+      res.status(response.status).json({ success: false, error: responseData });
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 app.post("/api/ticket", async (req, res) => {
   try {
     const { details } = req.body;
