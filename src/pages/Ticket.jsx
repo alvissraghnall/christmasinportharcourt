@@ -154,7 +154,7 @@ export default function Ticket() {
         text: 'Pay Now',
         mode: 'LIVE',
         transactionReference: Date.now().toString(),
-        amount: amount.value,
+        amount: amount.value * 100,
         style: {
             width: '200px',
             height: '40px',
