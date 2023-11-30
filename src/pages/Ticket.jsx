@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import client from '../sanity-client';
 import { motion, useAnimation } from 'framer-motion';
 import styles from './styles/Ticket.module.css';
-import { PayPalButtons } from "@paypal/react-paypal-js";
+// import { PayPalButtons } from "@paypal/react-paypal-js";
 import NavbarLight from '../components/NavbarLight';
 import InterswitchPay from '../components/InterswitchPay';
 import { validators } from '../validator';
@@ -147,27 +147,28 @@ export default function Ticket() {
     }
 
     const paymentParameters = {
-    merchantCode: import.meta.env. VITE_INTERSWITCH_MERCHANT_CODE,
-    payItemID: import.meta.env. VITE_PAY_ITEM_ID,
-    customerEmail: email.value,
-    redirectURL: 'https://www.christmasinportharcourtng.com/payment-success',
-    text: 'Pay Now',
-    mode: 'TEST',
-    transactionReference: Date.now().toString(),
-    amount: amount.value,
-    style: {
-        width: '200px',
-        height: '40px',
-        border: 'none',
-        color: '#fff',
-        backgroundColor: '#ff0000'
-    },
-    customerName: name.value,
-    customerMobileNo: phone.value,
-    callback: (response) => {
-      console.log('response: ', response)
+        merchantCode: import.meta.env. VITE_INTERSWITCH_MERCHANT_CODE,
+        payItemID: import.meta.env. VITE_PAY_ITEM_ID,
+        customerEmail: email.value,
+        redirectURL: 'https://www.christmasinportharcourtng.com/payment-success',
+        text: 'Pay Now',
+        mode: 'TEST',
+        transactionReference: Date.now().toString(),
+        amount: amount.value,
+        style: {
+            width: '200px',
+            height: '40px',
+            border: 'none',
+            color: '#fff',
+            backgroundColor: '#ff0000',
+            borderRadius: "0.75rem"
+        },
+        customerName: name.value,
+        customerMobileNo: phone.value,
+        callback: (response) => {
+            console.log('response: ', response)
+        }
     }
-  }
 
     useEffect(() => {
         startAnimation();
@@ -217,7 +218,7 @@ export default function Ticket() {
                                 </motion.div>
                             </div>
                         </form>
-                        <InterswitchPay paymentParameters={paymentParameters} className="btn p-0 w-100 mt-2" disabled={Object.values(formData).some((el) => el.error === true)} />
+                        <InterswitchPay paymentParameters={paymentParameters} className="btn p-0 w-100 mt-2" />
                     </div>
                     <div className="w-100 align-self-end">
                         <span className="opacity-80">&copy; {(new Date().getFullYear())} CIPH. All rights reserved. Built by <a href="https://www.webify.com.ng" target="_blank" rel="noopener noreferrer">Webify</a></span>
