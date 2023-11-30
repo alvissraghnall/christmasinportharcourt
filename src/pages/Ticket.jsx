@@ -152,7 +152,7 @@ export default function Ticket() {
         customerEmail: email.value,
         redirectURL: 'https://www.christmasinportharcourtng.com/payment-success',
         text: 'Pay Now',
-        mode: 'TEST',
+        mode: 'LIVE',
         transactionReference: Date.now().toString(),
         amount: amount.value,
         style: {
@@ -186,14 +186,14 @@ export default function Ticket() {
                                 <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                     <div className="position-relative mb-4">
                                         <label htmlFor="name" className="form-label fs-base">Full name</label>
-                                        <input type="text" id="name" value={name.value} onChange={handleInputChange} name="name" onBlur={handleBlur} className="form-control form-control-lg" required />
+                                        <input type="text" id="name" value={name.value} required onChange={handleInputChange} name="name" onBlur={handleBlur} className="form-control form-control-lg" required />
                                         {(formData.name.touched && formData.name.error) && <div className="my-1 text-sm w-100 pl-1 invalid-feedback position-absolute start-0 top-100">Name must have at least 3 characters.</div>}
                                     </div>
                                 </motion.div>
                                 <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                     <div className="position-relative mb-4">
                                         <label htmlFor="email" className="form-label fs-base">Email</label>
-                                        <input type="email" id="email" value={email.value} onChange={handleInputChange} onBlur={handleBlur} name="email" className="form-control form-control-lg" required />
+                                        <input required type="email" id="email" value={email.value} onChange={handleInputChange} onBlur={handleBlur} name="email" className="form-control form-control-lg" required />
                                         {(formData.email.touched && formData.email.error) && <div className="my-1 text-sm w-100 pl-1 invalid-feedback position-absolute start-0 top-100">Email must be a valid email!</div>}
                                     </div>
                                 </motion.div>
