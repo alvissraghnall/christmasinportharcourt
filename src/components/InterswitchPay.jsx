@@ -1,9 +1,9 @@
 
 import { InterswitchPay } from 'react-interswitch'
 
-const App = ({ paymentParameters }) => {
+const App = ({ paymentParameters, className, }) => {
   
-  return <InterswitchPay {...paymentParameters} />
+  return <InterswitchPay {...paymentParameters} className={className} />
 }
 
 export default App;
