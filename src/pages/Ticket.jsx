@@ -14,7 +14,7 @@ export default function Ticket() {
     const reactAlert = useAlert();
     const navigate = useNavigate();
 
-    const publicKey = "pk_live_ca29b8b11c2a076e05f003f4f4ff697ab37a387c";
+    // const publicKey = "pk_live_ca29b8b11c2a076e05f003f4f4ff697ab37a387c";
 
     const [formData, setFormData] = useState({
         name: {
@@ -38,6 +38,12 @@ export default function Ticket() {
             value: '',
         },
     });
+
+    const handleSubmit = ev => {
+        ev.preventDefault();
+        console.log(formData);
+
+    }
 
     const setFieldValue = (field, value, blur) => {
         setFormData((prevState) => ({
@@ -147,17 +153,18 @@ export default function Ticket() {
     }
 
     const paymentParameters = {
-        merchantCode: import.meta.env. VITE_INTERSWITCH_MERCHANT_CODE,
-        payItemID: import.meta.env. VITE_PAY_ITEM_ID,
+        merchantCode: import.meta.env.VITE_INTERSWITCH_MERCHANT_CODE,
+        payItemID: import.meta.env.VITE_PAY_ITEM_ID,
         customerEmail: email.value,
-        redirectURL: 'https://www.christmasinportharcourtng.com/payment-success',
+        redirectURL: `https://www.christmasinportharcourtng.com/payment-success`,
         text: 'Pay Now',
         mode: 'LIVE',
         transactionReference: Date.now().toString(),
         amount: amount.value * 100,
         style: {
-            width: '200px',
-            height: '40px',
+            width: '100%',
+            padding: "0.83rem",
+            // height: '40px',
             border: 'none',
             color: '#fff',
             backgroundColor: '#ff0000',
@@ -166,9 +173,41 @@ export default function Ticket() {
         customerName: name.value,
         customerMobileNo: phone.value,
         callback: (response) => {
-            console.log('response: ', response)
+            console.log('response: ', response);
+            if (response.resp == "00") {
+                const ticket = {
+                    _type: 'ticket',
+                    name: formData.name.value,
+                    email: formData.email.value,
+                    phone: formData.phone.value,
+                    kind: parseInt(formData.amount.value) <= 5000 ? "REGULAR" : "VIP",
+                };
+
+                try {
+                    client.create(ticket)
+                        .then(() => {
+                            reactAlert.show("Ticket purchase successful!", {
+                                type: types.SUCCESS,
+                                transition: transitions.FADE,
+                            });
+                            navigate(`/payment-success?id=${data.orderID}&type=${ticket.kind}`, {
+                                state: {
+                                    id: data.orderID,
+                                    kind: ticket.kind,
+                                },
+                            });
+                        });
+                } catch (error) {
+                    reactAlert.show("Some error occurred!", {
+                        type: types.ERROR,
+                        transition: transitions.FADE,
+                    });
+                }
+            }
         }
+        
     }
+    paymentParameters.redirectURL += `?ref=${paymentParameters.transactionReference}&amount=${amount.value}`;
 
     useEffect(() => {
         startAnimation();
@@ -181,19 +220,19 @@ export default function Ticket() {
                 <div className="container d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5">
                     <div className="w-100 align-self-end pt-1 pt-md-4 pb-4" style={{ maxWidth: '526px' }}>
                         <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: [0, 0.4, 1] }} className="text-center text-xl-start">Buy your Ticket</motion.h1>
-                        <form className="needs-validation" noValidate>
+                        <form className="needs-validation" noValidate onSubmit={handleSubmit}>
                             <div className="row">
                                 <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                     <div className="position-relative mb-4">
                                         <label htmlFor="name" className="form-label fs-base">Full name</label>
-                                        <input type="text" id="name" value={name.value} required onChange={handleInputChange} name="name" onBlur={handleBlur} className="form-control form-control-lg" required />
+                                        <input type="text" id="name" value={name.value} onChange={handleInputChange} name="name" onBlur={handleBlur} className="form-control form-control-lg" required />
                                         {(formData.name.touched && formData.name.error) && <div className="my-1 text-sm w-100 pl-1 invalid-feedback position-absolute start-0 top-100">Name must have at least 3 characters.</div>}
                                     </div>
                                 </motion.div>
                                 <motion.div initial={{ x: -100, opacity: 0 }} animate={controls} className="col-12">
                                     <div className="position-relative mb-4">
                                         <label htmlFor="email" className="form-label fs-base">Email</label>
-                                        <input required type="email" id="email" value={email.value} onChange={handleInputChange} onBlur={handleBlur} name="email" className="form-control form-control-lg" required />
+                                        <input type="email" id="email" value={email.value} onChange={handleInputChange} onBlur={handleBlur} name="email" className="form-control form-control-lg" required />
                                         {(formData.email.touched && formData.email.error) && <div className="my-1 text-sm w-100 pl-1 invalid-feedback position-absolute start-0 top-100">Email must be a valid email!</div>}
                                     </div>
                                 </motion.div>
@@ -217,8 +256,17 @@ export default function Ticket() {
                                     </div>
                                 </motion.div>
                             </div>
+                            {/* <button type="submit" className='mt-2' style={{
+                                outline: "none",
+                                background: "none",
+                                border: "none",
+                                width: "100%"
+                            }}
+                                disabled={Object.values(formData).some(el => el.error === true)}
+                            > */}
+                                <InterswitchPay paymentParameters={paymentParameters} className="btn w-100" />
+                            {/* </button> */}
                         </form>
-                        <InterswitchPay paymentParameters={paymentParameters} className="btn p-0 w-100 mt-2" />
                     </div>
                     <div className="w-100 align-self-end">
                         <span className="opacity-80">&copy; {(new Date().getFullYear())} CIPH. All rights reserved. Built by <a href="https://www.webify.com.ng" target="_blank" rel="noopener noreferrer">Webify</a></span>

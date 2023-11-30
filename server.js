@@ -194,7 +194,7 @@ app.post('/api/verify-payment', async (req, res) => {
 
     // Check the response and send feedback to the user
     const responseData = await response.json();
-    if (response.ok && parseInt(responseData.amount) === parseInt(amount)) {
+    if (response.ok && parseInt(responseData["Amount"]) === parseInt(amount) && responseData["ResponseCode"] === "00") {
       // Successful verification
       res.json({ success: true, data: responseData });
     } else {
