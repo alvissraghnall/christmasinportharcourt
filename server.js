@@ -174,7 +174,7 @@ app.post("/api/artiste-register", async (req, res) => {
   }
 });
 
-app.post('/verify-payment', async (req, res) => {
+app.post('/api/verify-payment', async (req, res) => {
   try {
     const { merchantCode, transactionReference, amount } = req.body;
 
@@ -194,7 +194,7 @@ app.post('/verify-payment', async (req, res) => {
 
     // Check the response and send feedback to the user
     const responseData = await response.json();
-    if (response.ok) {
+    if (response.ok && parseInt(responseData.amount) === parseInt(amount)) {
       // Successful verification
       res.json({ success: true, data: responseData });
     } else {
