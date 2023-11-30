@@ -31,13 +31,13 @@ const alertOptions = {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <PayPalScriptProvider options={initialOptions}>
+    {/* <PayPalScriptProvider options={initialOptions}> */}
       <AlertProvider template={AlertTemplate} {...alertOptions}>
         <App />
         <ToastContainer />
         {/* <PayPalButtons style={{ layout: "horizontal" }} /> */}
       </AlertProvider>
-    </PayPalScriptProvider>
+    {/* </PayPalScriptProvider> */}
   </React.StrictMode>
 );
 
