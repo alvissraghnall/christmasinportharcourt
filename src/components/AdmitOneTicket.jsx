@@ -20,8 +20,8 @@ const Ticket = ({ id: ticketID, kind }) => {
         </div>
         <div className={styles.ticketInfo}>
           <p className={styles.date}>
-            <span class="d-none d-md-block">24TH - 26TH </span>
-            <span class="d-block d-md-none">24-26 </span>
+            <span className="d-none d-md-block">24TH - 26TH </span>
+            <span className="d-block d-md-none">24-26 </span>
             <span className={styles.june29}>DECEMBER </span>
             <span>2023</span>
           </p>

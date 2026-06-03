@@ -34,9 +34,8 @@ export default function Footer() {
                         </a>
                     </div>
                     <p className="nav d-block fs-sm text-center pt-5 mt-lg-4 mb-0">
-                        <span className="opacity-80">© {(new Date().getFullYear())} CIPH. All rights reserved.<br />Built by <a href="https://www.webify.com.ng" target="_blank" rel="noopener noreferrer">
-                            Webify
-                        </a></span>
+                        <span className="opacity-80">© {(new Date().getFullYear())} CIPH. All rights reserved.<br />
+                        </span>
                     </p>
                 </div>
             </footer>

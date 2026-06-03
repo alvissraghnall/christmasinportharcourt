@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'

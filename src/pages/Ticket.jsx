@@ -269,7 +269,7 @@ export default function Ticket() {
                         </form>
                     </div>
                     <div className="w-100 align-self-end">
-                        <span className="opacity-80">&copy; {(new Date().getFullYear())} CIPH. All rights reserved. Built by <a href="https://www.webify.com.ng" target="_blank" rel="noopener noreferrer">Webify</a></span>
+                        <span className="opacity-80">&copy; {(new Date().getFullYear())} CIPH. All rights reserved. </span>
                     </div>
                 </div>
                 {/* Background */}
